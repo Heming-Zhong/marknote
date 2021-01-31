@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */; };
+		F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */; };
+		F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */; };
+		F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */; };
+		F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4625C6B96D005EDAB7 /* Persistence.swift */; };
+		F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */; };
+		F90EDB5525C6B96D005EDAB7 /* marknoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */; };
+		F90EDB6025C6B96D005EDAB7 /* marknoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F90EDB5125C6B96D005EDAB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F90EDB3225C6B96C005EDAB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F90EDB3925C6B96C005EDAB7;
+			remoteInfo = marknote;
+		};
+		F90EDB5C25C6B96D005EDAB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F90EDB3225C6B96C005EDAB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F90EDB3925C6B96C005EDAB7;
+			remoteInfo = marknote;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F90EDB3A25C6B96C005EDAB7 /* marknote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marknote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteApp.swift; sourceTree = "<group>"; };
+		F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F90EDB4625C6B96D005EDAB7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = marknote.xcdatamodel; sourceTree = "<group>"; };
+		F90EDB4B25C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F90EDB5025C6B96D005EDAB7 /* marknoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marknoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteTests.swift; sourceTree = "<group>"; };
+		F90EDB5625C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F90EDB5B25C6B96D005EDAB7 /* marknoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marknoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteUITests.swift; sourceTree = "<group>"; };
+		F90EDB6125C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F90EDB3725C6B96C005EDAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB4D25C6B96D005EDAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB5825C6B96D005EDAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F90EDB3125C6B96C005EDAB7 = {
+			isa = PBXGroup;
+			children = (
+				F90EDB3C25C6B96C005EDAB7 /* marknote */,
+				F90EDB5325C6B96D005EDAB7 /* marknoteTests */,
+				F90EDB5E25C6B96D005EDAB7 /* marknoteUITests */,
+				F90EDB3B25C6B96C005EDAB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F90EDB3B25C6B96C005EDAB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB3A25C6B96C005EDAB7 /* marknote.app */,
+				F90EDB5025C6B96D005EDAB7 /* marknoteTests.xctest */,
+				F90EDB5B25C6B96D005EDAB7 /* marknoteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F90EDB3C25C6B96C005EDAB7 /* marknote */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */,
+				F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */,
+				F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */,
+				F90EDB4625C6B96D005EDAB7 /* Persistence.swift */,
+				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
+				F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */,
+				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
+			);
+			path = marknote;
+			sourceTree = "<group>";
+		};
+		F90EDB4325C6B96D005EDAB7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F90EDB5325C6B96D005EDAB7 /* marknoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */,
+				F90EDB5625C6B96D005EDAB7 /* Info.plist */,
+			);
+			path = marknoteTests;
+			sourceTree = "<group>";
+		};
+		F90EDB5E25C6B96D005EDAB7 /* marknoteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */,
+				F90EDB6125C6B96D005EDAB7 /* Info.plist */,
+			);
+			path = marknoteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F90EDB3925C6B96C005EDAB7 /* marknote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F90EDB6425C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknote" */;
+			buildPhases = (
+				F90EDB3625C6B96C005EDAB7 /* Sources */,
+				F90EDB3725C6B96C005EDAB7 /* Frameworks */,
+				F90EDB3825C6B96C005EDAB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = marknote;
+			productName = marknote;
+			productReference = F90EDB3A25C6B96C005EDAB7 /* marknote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F90EDB4F25C6B96D005EDAB7 /* marknoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F90EDB6725C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknoteTests" */;
+			buildPhases = (
+				F90EDB4C25C6B96D005EDAB7 /* Sources */,
+				F90EDB4D25C6B96D005EDAB7 /* Frameworks */,
+				F90EDB4E25C6B96D005EDAB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F90EDB5225C6B96D005EDAB7 /* PBXTargetDependency */,
+			);
+			name = marknoteTests;
+			productName = marknoteTests;
+			productReference = F90EDB5025C6B96D005EDAB7 /* marknoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F90EDB5A25C6B96D005EDAB7 /* marknoteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F90EDB6A25C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknoteUITests" */;
+			buildPhases = (
+				F90EDB5725C6B96D005EDAB7 /* Sources */,
+				F90EDB5825C6B96D005EDAB7 /* Frameworks */,
+				F90EDB5925C6B96D005EDAB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F90EDB5D25C6B96D005EDAB7 /* PBXTargetDependency */,
+			);
+			name = marknoteUITests;
+			productName = marknoteUITests;
+			productReference = F90EDB5B25C6B96D005EDAB7 /* marknoteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F90EDB3225C6B96C005EDAB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					F90EDB3925C6B96C005EDAB7 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					F90EDB4F25C6B96D005EDAB7 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F90EDB3925C6B96C005EDAB7;
+					};
+					F90EDB5A25C6B96D005EDAB7 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = F90EDB3925C6B96C005EDAB7;
+					};
+				};
+			};
+			buildConfigurationList = F90EDB3525C6B96C005EDAB7 /* Build configuration list for PBXProject "marknote" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F90EDB3125C6B96C005EDAB7;
+			productRefGroup = F90EDB3B25C6B96C005EDAB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F90EDB3925C6B96C005EDAB7 /* marknote */,
+				F90EDB4F25C6B96D005EDAB7 /* marknoteTests */,
+				F90EDB5A25C6B96D005EDAB7 /* marknoteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F90EDB3825C6B96C005EDAB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */,
+				F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB4E25C6B96D005EDAB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB5925C6B96D005EDAB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F90EDB3625C6B96C005EDAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */,
+				F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */,
+				F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */,
+				F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB4C25C6B96D005EDAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90EDB5525C6B96D005EDAB7 /* marknoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F90EDB5725C6B96D005EDAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90EDB6025C6B96D005EDAB7 /* marknoteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F90EDB5225C6B96D005EDAB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F90EDB3925C6B96C005EDAB7 /* marknote */;
+			targetProxy = F90EDB5125C6B96D005EDAB7 /* PBXContainerItemProxy */;
+		};
+		F90EDB5D25C6B96D005EDAB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F90EDB3925C6B96C005EDAB7 /* marknote */;
+			targetProxy = F90EDB5C25C6B96D005EDAB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F90EDB6225C6B96D005EDAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F90EDB6325C6B96D005EDAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F90EDB6525C6B96D005EDAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"marknote/Preview Content\"";
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = marknote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F90EDB6625C6B96D005EDAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"marknote/Preview Content\"";
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = marknote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F90EDB6825C6B96D005EDAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				INFOPLIST_FILE = marknoteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/marknote.app/marknote";
+			};
+			name = Debug;
+		};
+		F90EDB6925C6B96D005EDAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				INFOPLIST_FILE = marknoteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/marknote.app/marknote";
+			};
+			name = Release;
+		};
+		F90EDB6B25C6B96D005EDAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				INFOPLIST_FILE = marknoteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknoteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = marknote;
+			};
+			name = Debug;
+		};
+		F90EDB6C25C6B96D005EDAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HDL578QJ8;
+				INFOPLIST_FILE = marknoteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sunYatSen.marknoteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = marknote;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F90EDB3525C6B96C005EDAB7 /* Build configuration list for PBXProject "marknote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90EDB6225C6B96D005EDAB7 /* Debug */,
+				F90EDB6325C6B96D005EDAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F90EDB6425C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90EDB6525C6B96D005EDAB7 /* Debug */,
+				F90EDB6625C6B96D005EDAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F90EDB6725C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90EDB6825C6B96D005EDAB7 /* Debug */,
+				F90EDB6925C6B96D005EDAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F90EDB6A25C6B96D005EDAB7 /* Build configuration list for PBXNativeTarget "marknoteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90EDB6B25C6B96D005EDAB7 /* Debug */,
+				F90EDB6C25C6B96D005EDAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */,
+			);
+			currentVersion = F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */;
+			path = marknote.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F90EDB3225C6B96C005EDAB7 /* Project object */;
+}
