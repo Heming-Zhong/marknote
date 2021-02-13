@@ -276,7 +276,7 @@ func rmitems(id: UUID?, cur: inout fileitems, callback: (_ cur: inout fileitems,
 }
 
 func removeitemAt(item: fileitems) -> Bool {
-    
+    rmitems(id: item.id, cur: &DirOpened.files, callback: rmitemcallback)
     return true
 }
 
@@ -297,6 +297,7 @@ extension ContentView {
                 })
                 Button(action: {
                     print("delete file started...")
+                    removeitemAt(item: item)
                 }, label: {
                     Text("删除")
                     Image(systemName: "trash")
@@ -319,6 +320,7 @@ extension ContentView {
                 })
                 Button(action: {
                     print("delete folder started...")
+                    removeitemAt(item: item)
                 }, label: {
                     Text("删除")
                     Image(systemName: "trash")
