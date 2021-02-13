@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./node_modules/prismjs/components/prism-tsx 2.js"],"names":[],"mappings":";;;;;AAAA;AACA,gE","file":"js/chunk-2d0ddbdf.de9568d9.js","sourcesContent":["var typescript = Prism.util.clone(Prism.languages.typescript);\nPrism.languages.tsx = Prism.languages.extend('jsx', typescript);"],"sourceRoot":""}
