@@ -20,16 +20,18 @@ public struct MonacoView: RepresentableView {
     var theme: MonacoTheme
 //    var mode: CodeMode
 //    var fontSize: Int
+    @Binding var saving: Bool
     var edited = false
     
     var onLoadSuccess: (()->())?
     var onLoadFail: ((Error) -> ())?
     var onContentChange: ((String) -> ())?
     
-    public init(theme:MonacoTheme = MonacoTheme.vscodedark, code: Binding<String>) {
+    public init(theme:MonacoTheme = MonacoTheme.vscodedark, code: Binding<String>, saving: Binding<Bool>) {
         self._code = code
 //        self.mode = mode
         self.theme = theme
+        self._saving = saving
     }
     
     // Life Cycle
@@ -41,7 +43,27 @@ public struct MonacoView: RepresentableView {
     
     // for iOS
     public func updateUIView(_ uiView: WKWebView, context: Context) {
-        updateWebView(context)
+        if self.saving == true {
+            context.coordinator.getContent({ result in
+                switch result {
+                    case .success(let resp):
+                        guard let newcontent = resp as? String else { return }
+                        self.code = newcontent
+                        let data = self.code.data(using: .utf8)
+                        print("saving")
+                        print(self.code)
+                        let tempwrapper = FileWrapper(regularFileWithContents: data!)
+                        try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                    case .failure(let error):
+                        print("Error \(error)")
+                }
+                self.saving = false
+                return 
+            })
+        }
+        else {
+            updateWebView(context)
+        }
     }
     
     public func makeCoordinator() -> MonacoController {
@@ -90,12 +112,13 @@ extension MonacoView {
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
+        webView.scrollView.isScrollEnabled = false
         
         // iOS
         webView.isOpaque = false
         
         let MonacoBundle = try! Bundle.MonacoBundle()
-        guard let indexPath = MonacoBundle.path(forResource: "Web/index", ofType: "html") else {
+        guard let indexPath = MonacoBundle.path(forResource: "Vditor/src/test", ofType: "html") else {
             fatalError("MonacoBundle is missing")
         }
         let path = URL(fileURLWithPath: indexPath)
@@ -128,24 +151,24 @@ extension MonacoView {
                
     }
     func update(elementGetter: (JavascriptCallback?) -> Void,
-                              elementSetter: @escaping (_ elementState: String) -> Void,
-                              currentElementState: String) {
-      elementGetter({ result in
-        
-        switch result {
-        case .success(let resp):
-          guard let previousElementState = resp as? String else { return }
-          
-          if previousElementState != currentElementState {
-            elementSetter(currentElementState)
-          }
-          
-          return
-        case .failure(let error):
-          print("Error \(error)")
-          return
-        }
-      })
+                elementSetter: @escaping (_ elementState: String) -> Void,
+                currentElementState: String) {
+        print("updating webview...")
+        elementGetter({ result in
+            switch result {
+                case .success(let resp):
+                    guard let previousElementState = resp as? String else { return }
+              
+                    if previousElementState != currentElementState {
+                        elementSetter(currentElementState)
+                    }
+              
+                    return
+                case .failure(let error):
+                    print("Error \(error)")
+                    return
+            }
+        })
     }
 }
 

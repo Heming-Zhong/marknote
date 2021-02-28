@@ -107,13 +107,13 @@ extension MonacoController: WKNavigationDelegate {
             if parent.edited == false {
                 parent.edited = true
             }
-            let content = (message.body as? String) ?? ""
-
-            if content != parent.code {
-                //parent.onContentChange?(content)
-                parent.code = content
-                print(parent.code)
-            }
+//            let content = (message.body as? String) ?? ""
+//
+//            if content != parent.code {
+//                //parent.onContentChange?(content)
+//                parent.code = content
+//                print(parent.code)
+//            }
             return
         }
     }

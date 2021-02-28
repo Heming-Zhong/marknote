@@ -103,8 +103,14 @@ class Tabitem: ObservableObject {
 //    @Published var file: filecontent? = nil
     @Published var path: URL? = nil
     @Published var content: String = ""
+    @Published var edited: Bool = false
     
     func settabs(url: URL?) {
+        // saving before switching
+        if edited == false {
+            edited = true
+        }
+        
         if url != nil {
             // add a record to self.file
             let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -126,6 +132,7 @@ class Tabitem: ObservableObject {
 //            let content = filecontent(path: url, content: doc ?? "")
             self.path = url
             self.content = doc ?? ""
+            self.edited = false
         
 //            self.file = content
         }

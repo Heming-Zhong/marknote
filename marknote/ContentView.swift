@@ -267,10 +267,16 @@ func rmitemcallback(cur: inout fileitems, index: Int) {
 func rmitems(id: UUID?, cur: inout fileitems, callback: (_ cur: inout fileitems, _ index: Int) -> ()) {
     if cur.children != nil {
         for i in 0..<cur.children!.count {
+            // 删除成功后children长度发生变化，所以要实时判断是否越界
+            if i >= cur.children!.count {
+                break
+            }
             if cur.children![i].id == id {
                 callback(&cur, i)
             }
-            rmitems(id: id, cur: &cur.children![i], callback: callback)
+            if i < cur.children!.count {
+                rmitems(id: id, cur: &cur.children![i], callback: callback)
+            }
         }
     }
 }
@@ -346,7 +352,7 @@ extension ContentView {
 
     
     func buildeditor() -> AnyView {
-        return AnyView( EditorView(document: self.$Openedfilelist.content, fileURL: self.Openedfilelist.path) )
+        return AnyView( EditorView(document: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited, fileURL: self.Openedfilelist.path) )
     }
     
     // MARK: - 编辑器视图
@@ -363,13 +369,13 @@ extension ContentView {
                     }
                     Button("save") {
                         if self.Openedfilelist.path != nil {
-                            let data = self.Openedfilelist.content.data(using: .utf8)
-                            print("saving")
-                            print(self.Openedfilelist.content)
-                            let tempwrapper = FileWrapper(regularFileWithContents: data!)
-                            try! tempwrapper.write(to: (self.Openedfilelist.path)!, originalContentsURL: nil)
+                            self.Openedfilelist.edited = true
+//                            let data = self.Openedfilelist.content.data(using: .utf8)
+//                            print("saving")
+//                            print(self.Openedfilelist.content)
+//                            let tempwrapper = FileWrapper(regularFileWithContents: data!)
+//                            try! tempwrapper.write(to: (self.Openedfilelist.path)!, originalContentsURL: nil)
                         }
-                        
                     }
                 }
             )
@@ -400,29 +406,16 @@ extension ContentView {
 }
 
 
-struct fileaddview: View {
-    //@Binding var name: String
-    var body: some View {
-        List {
-            HStack{
-                Text("Filename:")
-//                TextField(<#LocalizedStringKey#>, text: name)
-            }
-        }
-        Text("helo")
-    }
-}
-
-
 // MARK: - EditorView：显示指定内容的Markdown编辑器
 struct EditorView: View {
     @Binding var document: String
+    @Binding var edited: Bool
     var fileURL: URL?
 //    @State var fontSize: Int
 //    var fontFamily: String
     var body: some View {
         VStack {
-            MonacoView(theme: MonacoTheme.vscodelight, code: $document)
+            MonacoView(theme: MonacoTheme.vscodelight, code: $document, saving: $edited)
         }
     }
 }
