@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- ⚠️生产环境请指定版本号，如 https://cdn.jsdelivr.net/npm/vditor@x.x.x/dist... -->
+    <link rel="stylesheet" href="../dist/index.css" />
+    <title>My Awesome Editor</title>
+</head>
+<style>
+    body {
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .vditor-reset {
+        font-size: 22px;
+    }
+</style>
+
+<body>
+    <div id="wrapper">
+        <div id="vditor" class="vditor  vditor--fullscreen" style="zoom: 1.3;"></div>
+    </div>
+    <script src="../dist/index.min.js">
+    </script>
+    <script>
+        console.log("test")
+        var edited = false
+        var editor = new Vditor('vditor', {
+            toolbarConfig: {
+                pin: true
+            },
+            counter: {
+                enable: true
+            },
+            height: window.innerHeight,
+            toolbar: [
+                'headings',
+                'bold',
+                'emoji',
+                'link',
+                'upload',
+                'edit-mode',
+                'indent',
+                'outdent',
+                'table',
+                'outline', {
+                    name: 'more',
+                    toolbar: [
+                        'insert-after',
+                        'preview',
+                        'info',
+                        'help',
+                    ],
+                },
+            ],
+            tab: '    ',
+            icon: 'ant',
+            outline: {
+                enable: true,
+                position: 'right'
+            },
+            preview: {
+                hljs: {
+                    style: 'vs'
+                },
+                theme: {
+                    current: 'light'
+                },
+                markdown: {
+                    toc: true,
+                    mark: true
+                }
+            },
+            theme: 'classic',
+            value: "",
+            input: function(text, e) {
+                if (edited == false) {
+                    edited = true
+                }
+                window.webkit.messageHandlers.TextContentDidChange.postMessage(null);
+            },
+            after: function() {
+                window.webkit.messageHandlers.EditorIsReady.postMessage(null);
+            }
+        })
+
+        function getStringFromHex(content) {
+            return decodeURIComponent(content.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&'));
+        }
+
+        GetContent = function() {
+            console.log(editor.getValue())
+            return editor.getValue()
+        }
+
+        SetContent = function(content) {
+            var text = getStringFromHex(content);
+            editor.setValue(text)
+            // 当且仅当以View的数据为准时会SetContent，所以需要把edited设为false
+            edited = false
+        }
+
+        function handleChange(mediaQueryListEvent) {
+            if (mediaQueryListEvent.matches) {
+                // 用户切换到了暗色(dark)主题
+                console.log("change to dark theme")
+                editor.setTheme("dark", "dark", "monokai")
+            } else {
+                // 用户切换到了亮色(light)主题
+                console.log("change to light theme")
+                editor.setTheme("classic", "light", "vs")
+            }
+        }
+
+        const mediaQueryListDark = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mediaQueryListDark.matches) {
+            editor.setTheme("dark", "dark", "monokai")
+        }
+        // 添加主题变动监控事件
+        mediaQueryListDark.addListener(handleChange);
+
+        // window.webkit.messageHandlers.EditorIsReady.postMessage(null);
+    </script>
+</body>
+
+</html>
