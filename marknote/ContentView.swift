@@ -165,11 +165,17 @@ struct ContentView: View {
                             }).sheet(isPresented: $showpop, content: {
                                 PickerView(callback: filePicked)
                             })
+                            .padding()
+                            .hoverEffect()
+                            .keyboardShortcut("o", modifiers: [.command])
                             Button(action: {
                                 
                             }, label: {
                                 Image(systemName: "arrow.clockwise")
                             })
+                            .padding()
+                            .hoverEffect()
+                            .keyboardShortcut("r", modifiers: [.command])
                         }
 
                     }
@@ -385,6 +391,8 @@ extension ContentView {
                         }
                     }
                     .padding()
+                    .hoverEffect()
+                    .keyboardShortcut("s", modifiers: [.command])
                 }
             )
         .navigationBarTitleDisplayMode(.inline)
