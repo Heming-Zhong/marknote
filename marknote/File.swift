@@ -105,6 +105,7 @@ class Tabitem: ObservableObject {
                             let saving_data = self.content.data(using: .utf8)
                             let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
                             try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                            self.edited = false
                         }
 //                        print(parent.code)
                     case .failure(let error):
@@ -216,4 +217,4 @@ func traversesubfiles(root: fileitems) -> fileitems {
     return res
 }
 
-var coordinator: MonacoController? = nil // md深井冰....
+var coordinator: VditorController? = nil // md深井冰....

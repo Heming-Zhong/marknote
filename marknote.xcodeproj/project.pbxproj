@@ -16,14 +16,14 @@
 		F90EDB5525C6B96D005EDAB7 /* marknoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */; };
 		F90EDB6025C6B96D005EDAB7 /* marknoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */; };
 		F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8725C6BAF5005EDAB7 /* File.swift */; };
-		F90EDB9525C6BB55005EDAB7 /* MonacoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8D25C6BB50005EDAB7 /* MonacoView.swift */; };
-		F90EDB9625C6BB55005EDAB7 /* MonacoViewRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8E25C6BB50005EDAB7 /* MonacoViewRPC.swift */; };
+		F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8D25C6BB50005EDAB7 /* VditorView.swift */; };
+		F90EDB9625C6BB55005EDAB7 /* VditorViewRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8E25C6BB50005EDAB7 /* VditorViewRPC.swift */; };
 		F90EDB9725C6BB55005EDAB7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8F25C6BB50005EDAB7 /* Data.swift */; };
-		F90EDB9825C6BB55005EDAB7 /* MonacoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9025C6BB50005EDAB7 /* MonacoController.swift */; };
+		F90EDB9825C6BB55005EDAB7 /* VditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9025C6BB50005EDAB7 /* VditorController.swift */; };
 		F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9125C6BB50005EDAB7 /* Mode.swift */; };
 		F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9225C6BB50005EDAB7 /* Theme.swift */; };
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
-		F90EDB9C25C6BB55005EDAB7 /* Monaco.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB9425C6BB55005EDAB7 /* Monaco.bundle */; };
+		F9D219ED25F2831400AC924C /* Editor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9D219EC25F2831400AC924C /* Editor.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +59,14 @@
 		F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteUITests.swift; sourceTree = "<group>"; };
 		F90EDB6125C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F90EDB8725C6BAF5005EDAB7 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		F90EDB8D25C6BB50005EDAB7 /* MonacoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonacoView.swift; sourceTree = "<group>"; };
-		F90EDB8E25C6BB50005EDAB7 /* MonacoViewRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonacoViewRPC.swift; sourceTree = "<group>"; };
+		F90EDB8D25C6BB50005EDAB7 /* VditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VditorView.swift; sourceTree = "<group>"; };
+		F90EDB8E25C6BB50005EDAB7 /* VditorViewRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VditorViewRPC.swift; sourceTree = "<group>"; };
 		F90EDB8F25C6BB50005EDAB7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		F90EDB9025C6BB50005EDAB7 /* MonacoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonacoController.swift; sourceTree = "<group>"; };
+		F90EDB9025C6BB50005EDAB7 /* VditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VditorController.swift; sourceTree = "<group>"; };
 		F90EDB9125C6BB50005EDAB7 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		F90EDB9225C6BB50005EDAB7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		F90EDB9425C6BB55005EDAB7 /* Monaco.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Monaco.bundle; sourceTree = "<group>"; };
+		F9D219EC25F2831400AC924C /* Editor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Editor.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +117,12 @@
 		F90EDB3C25C6B96C005EDAB7 /* marknote */ = {
 			isa = PBXGroup;
 			children = (
+				F9D219EC25F2831400AC924C /* Editor.bundle */,
 				F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */,
 				F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */,
 				F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */,
 				F90EDB4625C6B96D005EDAB7 /* Persistence.swift */,
-				F90EDB9425C6BB55005EDAB7 /* Monaco.bundle */,
-				F90EDB8C25C6BB50005EDAB7 /* MuyaLib */,
+				F90EDB8C25C6BB50005EDAB7 /* VditorLib */,
 				F90EDB8725C6BAF5005EDAB7 /* File.swift */,
 				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
 				F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */,
@@ -157,18 +157,18 @@
 			path = marknoteUITests;
 			sourceTree = "<group>";
 		};
-		F90EDB8C25C6BB50005EDAB7 /* MuyaLib */ = {
+		F90EDB8C25C6BB50005EDAB7 /* VditorLib */ = {
 			isa = PBXGroup;
 			children = (
-				F90EDB8D25C6BB50005EDAB7 /* MonacoView.swift */,
-				F90EDB8E25C6BB50005EDAB7 /* MonacoViewRPC.swift */,
+				F90EDB8D25C6BB50005EDAB7 /* VditorView.swift */,
+				F90EDB8E25C6BB50005EDAB7 /* VditorViewRPC.swift */,
 				F90EDB8F25C6BB50005EDAB7 /* Data.swift */,
-				F90EDB9025C6BB50005EDAB7 /* MonacoController.swift */,
+				F90EDB9025C6BB50005EDAB7 /* VditorController.swift */,
 				F90EDB9125C6BB50005EDAB7 /* Mode.swift */,
 				F90EDB9225C6BB50005EDAB7 /* Theme.swift */,
 				F90EDB9325C6BB50005EDAB7 /* Bundle.swift */,
 			);
-			path = MuyaLib;
+			path = VditorLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D219ED25F2831400AC924C /* Editor.bundle in Resources */,
 				F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */,
 				F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */,
-				F90EDB9C25C6BB55005EDAB7 /* Monaco.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,13 +305,13 @@
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
 				F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */,
 				F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */,
-				F90EDB9525C6BB55005EDAB7 /* MonacoView.swift in Sources */,
+				F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */,
 				F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */,
-				F90EDB9625C6BB55005EDAB7 /* MonacoViewRPC.swift in Sources */,
+				F90EDB9625C6BB55005EDAB7 /* VditorViewRPC.swift in Sources */,
 				F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */,
 				F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */,
 				F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */,
-				F90EDB9825C6BB55005EDAB7 /* MonacoController.swift in Sources */,
+				F90EDB9825C6BB55005EDAB7 /* VditorController.swift in Sources */,
 				F90EDB9725C6BB55005EDAB7 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

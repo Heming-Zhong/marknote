@@ -156,9 +156,7 @@ struct ContentView: View {
                             }
                     }
                 }
-
-                .navigationBarItems(trailing: HStack{
-                })
+                .accentColor(.gray)
                 .navigationBarTitle("打开的目录")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
@@ -168,8 +166,10 @@ struct ContentView: View {
                             }).sheet(isPresented: $showpop, content: {
                                 PickerView(callback: filePicked)
                             })
-                            Button(action: {}, label: {
-                                Image(systemName: "doc.badge.plus")
+                            Button(action: {
+                                
+                            }, label: {
+                                Image(systemName: "arrow.clockwise")
                             })
                         }
 
@@ -367,9 +367,25 @@ extension ContentView {
                 HStack {
                     Button("save") {
                         if self.Openedfilelist.path != nil {
-                            self.Openedfilelist.edited = true
+                            coordinator?.getContent({result in
+                                switch result {
+                                    case .success(let resp):
+                                        guard let newcontent = resp as? String else { return }
+                                        Openedfilelist.content = newcontent
+                                        if Openedfilelist.path != nil {
+                                            let saving_data = Openedfilelist.content.data(using: .utf8)
+                                            let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
+                                            try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                                            self.Openedfilelist.edited = false
+                                        }
+                                        
+                                    case .failure(let error):
+                                        print("auto save Error: \(error)")
+                                }
+                            })
                         }
                     }
+                    .padding()
                 }
             )
         .navigationBarTitleDisplayMode(.inline)
@@ -404,11 +420,9 @@ struct EditorView: View {
     @Binding var document: String
     @Binding var edited: Bool
     var fileURL: URL?
-//    @State var fontSize: Int
-//    var fontFamily: String
     var body: some View {
         VStack {
-            MonacoView(theme: MonacoTheme.vscodelight, code: $document, saving: $edited)
+            VditorView(code: $document, edited: $edited)
         }
     }
 }

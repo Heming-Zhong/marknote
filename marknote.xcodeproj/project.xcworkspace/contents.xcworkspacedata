@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/zhongheming/Documents/Xcode Projects/marknote/marknote/Editor.bundle">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>
