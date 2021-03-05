@@ -362,19 +362,12 @@ extension ContentView {
                 self.buildeditor()
             }
         }
+        .navigationTitle(Openedfilelist.name)
         .navigationBarItems(trailing:
                 HStack {
-                    Button("Help") {
-                        print("Help tapped!")
-                    }
                     Button("save") {
                         if self.Openedfilelist.path != nil {
                             self.Openedfilelist.edited = true
-//                            let data = self.Openedfilelist.content.data(using: .utf8)
-//                            print("saving")
-//                            print(self.Openedfilelist.content)
-//                            let tempwrapper = FileWrapper(regularFileWithContents: data!)
-//                            try! tempwrapper.write(to: (self.Openedfilelist.path)!, originalContentsURL: nil)
                         }
                     }
                 }

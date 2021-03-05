@@ -18,10 +18,8 @@ public struct MonacoView: RepresentableView {
     @Binding var code: String
     
     var theme: MonacoTheme
-//    var mode: CodeMode
-//    var fontSize: Int
     @Binding var saving: Bool
-    var edited = false
+    @State var edited = false
     
     var onLoadSuccess: (()->())?
     var onLoadFail: ((Error) -> ())?
@@ -29,7 +27,6 @@ public struct MonacoView: RepresentableView {
     
     public init(theme:MonacoTheme = MonacoTheme.vscodedark, code: Binding<String>, saving: Binding<Bool>) {
         self._code = code
-//        self.mode = mode
         self.theme = theme
         self._saving = saving
     }
@@ -42,6 +39,8 @@ public struct MonacoView: RepresentableView {
     }
     
     // for iOS
+    // 在View的外部引用数据（@Binding或者是@Observed）发生变化时调用，
+    // 用新的外部数据刷新视图
     public func updateUIView(_ uiView: WKWebView, context: Context) {
         if self.saving == true {
             context.coordinator.getContent({ result in
@@ -67,7 +66,8 @@ public struct MonacoView: RepresentableView {
     }
     
     public func makeCoordinator() -> MonacoController {
-        MonacoController(self)
+        coordinator = MonacoController(self)
+        return coordinator!
     }
     
 }
@@ -126,15 +126,8 @@ extension MonacoView {
         let data = try! Data(contentsOf: URL(fileURLWithPath: indexPath))
         webView.loadFileURL(path, allowingReadAccessTo: path.deletingLastPathComponent())
         
-        //webView.load(data, mimeType: "text/html", characterEncodingName: "utf-8", baseURL: MonacoBundle.resourceURL!)
-        
         context.coordinator.setWebView(webView)
-//        context.coordinator.setThemeName(theme.rawValue)
-        
-//        context.coordinator.setMode(mode.rawValue)
         context.coordinator.setContent(code)
-        //context.coordinator.initContent(code)
-//        context.coordinator.setFontSize(fontSize)
         
         return webView
     }
@@ -144,6 +137,7 @@ extension MonacoView {
 //               elementSetter: context.coordinator.setMode(_:),
 //               currentElementState: self.mode.rawValue)
         
+        // 这个更新，是以这个editor View中暂存的内容为标准进行的
         update(elementGetter: context.coordinator.getContent(_:), elementSetter: context.coordinator.setContent(_:), currentElementState: self.code)
         
 //        context.coordinator.setThemeName(self.theme.rawValue)

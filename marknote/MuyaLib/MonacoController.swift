@@ -104,16 +104,10 @@ extension MonacoController: WKNavigationDelegate {
         
         // Content change
         if message.name == MonacoViewRPC.textContentDidChange {
+            print("updating")
             if parent.edited == false {
                 parent.edited = true
             }
-//            let content = (message.body as? String) ?? ""
-//
-//            if content != parent.code {
-//                //parent.onContentChange?(content)
-//                parent.code = content
-//                print(parent.code)
-//            }
             return
         }
     }
@@ -131,6 +125,8 @@ extension MonacoController {
     func setTabInsertsSpaces(_ value: Bool) {
         callJavascript(javascriptString: "SetTabInsertSpaces(\(value));")
     }
+    
+    // deprecated method
     func initContent(_ value: String) {
         let script1 = "var container = document.getElementById('myTextarea')"
         let script2 = "container.value = String.raw`\(value)`;"

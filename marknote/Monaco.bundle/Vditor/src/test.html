@@ -84,8 +84,8 @@
             input: function(text, e) {
                 if (edited == false) {
                     edited = true
-                    window.webkit.messageHandlers.TextContentDidChange.postMessage();
-                } 
+                    window.webkit.messageHandlers.TextContentDidChange.postMessage(null);
+                }
             },
             after: function() {
                 window.webkit.messageHandlers.EditorIsReady.postMessage(null);
@@ -104,6 +104,8 @@
         SetContent = function(content) {
             var text = getStringFromHex(content);
             editor.setValue(text)
+            // 当且仅当以View的数据为准时会SetContent，所以需要把edited设为false
+            edited = false
         }
 
         function handleChange(mediaQueryListEvent) {
