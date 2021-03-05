@@ -156,7 +156,6 @@ struct ContentView: View {
                             }
                     }
                 }
-                .accentColor(.gray)
                 .navigationBarTitle("打开的目录")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
@@ -176,7 +175,7 @@ struct ContentView: View {
                     }
                 }
                 body1
-            }
+            }.accentColor(.purple)
             
         }
         .statusBar(hidden: true)
