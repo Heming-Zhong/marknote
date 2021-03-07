@@ -13,6 +13,23 @@ import UniformTypeIdentifiers
 var selectedid: UUID? = nil
 var input = ""
 
+extension UIHostingController {
+
+    /// Applies workaround so `keyboardShortcut` can be used via SwiftUI.
+    ///
+    /// When `UIHostingController` is used as a non-root controller with the UIKit app lifecycle,
+    /// keyboard shortcuts created in SwiftUI don't work (as of iOS 14.4).
+    /// This workaround is harmless and triggers an internal state change that enables keyboard shortcut bridging.
+    /// See https://steipete.com/posts/fixing-keyboardshortcut-in-swiftui/
+    func applyKeyboardShortcutFix() {
+        #if !targetEnvironment(macCatalyst)
+        let window = UIWindow()
+        window.rootViewController = self
+        window.isHidden = false;
+        #endif
+    }
+}
+
 func setsubpath(cur: inout fileitems) {
     if cur.children != nil {
         for i in 0..<cur.children!.count {
@@ -371,6 +388,7 @@ extension ContentView {
         .navigationBarItems(trailing:
                 HStack {
                     Button("save") {
+                        print("saving")
                         if self.Openedfilelist.path != nil {
                             coordinator?.getContent({result in
                                 switch result {
