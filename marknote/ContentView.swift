@@ -46,12 +46,25 @@ func findandsetname(id: UUID?, cur: inout fileitems, newname: String) {
         
         let old = cur.path
         let new = cur.path?.deletingLastPathComponent().appendingPathComponent(newname)
+        let parent = cur.path?.deletingLastPathComponent()
+        
+        guard ((parent?.startAccessingSecurityScopedResource()) != nil) else {
+            print("[ERROR] no permission")
+            return
+        }
         
         do {
+            print("\(old)")
+            print("\(new)")
+            print("\(parent)")
             try manager.moveItem(at: old!, to: new!)
         } catch {
-            print("[ERROR] rename file failed...")
+            print("[ERROR] rename file failed...\(error)")
             return
+        }
+        
+        defer {
+            parent?.stopAccessingSecurityScopedResource()
         }
         cur.path = new
         cur.name = newname
@@ -235,6 +248,11 @@ func newfilecallback(cur: inout fileitems) {
     let item = fileitems(name: "Untitled.md", path: cur.path?.appendingPathComponent("Untitled.md", isDirectory: false), icon: "doc", renaming: true)
 
     print(item.path)
+    guard cur.path!.startAccessingSecurityScopedResource() else {
+        print("Error: no permission")
+        return
+    }
+    
     let _string = ""
     if let data = _string.data(using: .utf8) {
         do {
@@ -243,8 +261,15 @@ func newfilecallback(cur: inout fileitems) {
         } catch {
             print("[ERROR] new file failed...")
             print(error)
+            defer {
+                cur.path!.stopAccessingSecurityScopedResource()
+            }
             return
         }
+    }
+    
+    defer {
+        cur.path!.stopAccessingSecurityScopedResource()
     }
     cur.children?.append(item)
 }
@@ -258,13 +283,26 @@ func addnewfileAt(item: fileitems) -> Bool {
 func newfoldercallback(cur: inout fileitems) {
     let item = fileitems(name: "Untitled", path: cur.path?.appendingPathComponent("Untitled", isDirectory: true), children: [], icon: "folder", renaming: true)
     print(item.path)
+    guard ((cur.path?.startAccessingSecurityScopedResource()) != nil) else {
+        print("Error: no permission")
+        return
+    }
+    
+    
     let manager = FileManager.default
     do {
         try manager.createDirectory(at: item.path!, withIntermediateDirectories: false, attributes: nil)
         print("[SUCCESS] new folder created")
     } catch {
         print("[ERROR] new folder create failed: \(error)")
+        defer {
+            cur.path?.stopAccessingSecurityScopedResource()
+        }
         return
+    }
+    
+    defer {
+        cur.path?.stopAccessingSecurityScopedResource()
     }
     cur.children?.append(item)
 }
