@@ -48,24 +48,27 @@ func findandsetname(id: UUID?, cur: inout fileitems, newname: String) {
         let new = cur.path?.deletingLastPathComponent().appendingPathComponent(newname)
         let parent = cur.path?.deletingLastPathComponent()
         
-        guard ((parent?.startAccessingSecurityScopedResource()) != nil) else {
-            print("[ERROR] no permission")
+        // gain folder access
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let bookmark = documentsUrl?.appendingPathComponent(".book")
+        let bookmarkData = try! Data(contentsOf: bookmark!)
+        
+        var isStale = false
+        let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+        guard mark.startAccessingSecurityScopedResource() else {
+            print("Error: no permission")
             return
         }
         
+        defer { mark.stopAccessingSecurityScopedResource() }
+        
         do {
-            print("\(old)")
-            print("\(new)")
-            print("\(parent)")
             try manager.moveItem(at: old!, to: new!)
         } catch {
             print("[ERROR] rename file failed...\(error)")
             return
         }
         
-        defer {
-            parent?.stopAccessingSecurityScopedResource()
-        }
         cur.path = new
         cur.name = newname
         // file or folder
@@ -248,10 +251,18 @@ func newfilecallback(cur: inout fileitems) {
     let item = fileitems(name: "Untitled.md", path: cur.path?.appendingPathComponent("Untitled.md", isDirectory: false), icon: "doc", renaming: true)
 
     print(item.path)
-    guard cur.path!.startAccessingSecurityScopedResource() else {
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
         print("Error: no permission")
         return
     }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
     
     let _string = ""
     if let data = _string.data(using: .utf8) {
@@ -268,9 +279,6 @@ func newfilecallback(cur: inout fileitems) {
         }
     }
     
-    defer {
-        cur.path!.stopAccessingSecurityScopedResource()
-    }
     cur.children?.append(item)
 }
 
@@ -283,10 +291,18 @@ func addnewfileAt(item: fileitems) -> Bool {
 func newfoldercallback(cur: inout fileitems) {
     let item = fileitems(name: "Untitled", path: cur.path?.appendingPathComponent("Untitled", isDirectory: true), children: [], icon: "folder", renaming: true)
     print(item.path)
-    guard ((cur.path?.startAccessingSecurityScopedResource()) != nil) else {
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
         print("Error: no permission")
         return
     }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
     
     
     let manager = FileManager.default
@@ -295,15 +311,9 @@ func newfoldercallback(cur: inout fileitems) {
         print("[SUCCESS] new folder created")
     } catch {
         print("[ERROR] new folder create failed: \(error)")
-        defer {
-            cur.path?.stopAccessingSecurityScopedResource()
-        }
         return
     }
     
-    defer {
-        cur.path?.stopAccessingSecurityScopedResource()
-    }
     cur.children?.append(item)
 }
 
@@ -314,6 +324,18 @@ func addnewfolderAt(item: fileitems) {
 // MARK: - 删除项目
 func rmitemcallback(cur: inout fileitems, index: Int) {
     print(cur.children![index].path)
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
+        print("Error: no permission")
+        return
+    }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
     let manager = FileManager.default
     do {
         try manager.removeItem(at: cur.children![index].path!)
