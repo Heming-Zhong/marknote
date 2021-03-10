@@ -110,6 +110,11 @@ extension VditorController: WKNavigationDelegate {
             }
             return
         }
+        
+        // log output
+        if message.name == VditorViewRPC.logHandler {
+            print(message.body)
+        }
     }
 }
 

@@ -7,8 +7,7 @@
 
 import Foundation
 
-public enum MonacoTheme: String {
-    case vscodelight = "vs"
-    case vscodedark = "vs-dark"
-    case hcblack = "hc-black"
+public enum EditorTheme: String {
+    case light = "light"
+    case dark = "dark"
 }

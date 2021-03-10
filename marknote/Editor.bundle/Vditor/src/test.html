@@ -27,6 +27,14 @@
     <script>
         console.log("test")
         var edited = false
+        
+        var url = ""
+        var owner = ""
+        var repo = ""
+        var path = ""
+        var token = ""
+        var branch = ""
+        
         var editor = new Vditor('vditor', {
             toolbarConfig: {
                 pin: true
@@ -73,6 +81,48 @@
                     mark: true
                 }
             },
+            upload: {
+                accept: 'image/*,.mp3, .wav, .rar',
+                token: '16c27b7ad366747f60e730980c8554dd',
+                url: 'https://gitee.com/api/v5/repos/zhong_he_ming/image/contents/images/',
+                handler: function(file) {
+                    console.log("handling")
+                    console.log(file)
+                    file[0].name = filename(file[0].name)
+                    path += file[0].name
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState == 4 && xhr.status == 201) {
+                            console.log(xhr.responseText); // handle response.
+                            object = JSON.parse(xhr.responseText)
+                            url = encodeURI(object.content.download_url)
+                            editor.insertValue("\n!["+object.content.name+"]("+url+")\n")
+                            // console.log("\n<img src=\""+url+"\" alt=\""+object.content.name+"\" style=\"zoom: 100%;\" />\n")
+                        }
+                    };
+                    filereader = new FileReader()
+                    filereader.onload = function (e) {
+                        var dataImg = this.result; //base64位
+                        var data = dataImg.replace(/^data:image\/\w+;base64,/, "");//去掉base64位头部
+                        var final_url = url + owner + "/" + repo + "/contents/" + path
+                        xhr.open("POST", final_url)
+                        form = new FormData()
+                        form.append("access_token", token)
+                        form.append("branch", branch)
+                        form.append("content", data)
+                        form.append("message", "pic")
+                        xhr.send(form);
+                    }
+                    filereader.readAsDataURL(file[0])
+                },
+                error (msg) {
+                    console.log(msg)
+                },
+                success (ele, msg) {
+                    console.log("success...")
+                },
+                multiple: false
+            },
             theme: 'classic',
             value: "",
             input: function(text, e) {
@@ -85,7 +135,19 @@
                 window.webkit.messageHandlers.EditorIsReady.postMessage(null);
             }
         })
-
+    
+        function filename (name) {
+            console.log("test")
+            console.log(name)
+            return name.replace(/[^(a-zA-Z0-9\u4e00-\u9fa5\.)]/g, '').
+            replace(/[\?\\/:|<>\*\[\]\(\)\$%\{\}@~]/g, '').
+            replace('/\\s/g', '')
+        }
+    
+        window.onkeydown=function(ev) {
+            window.webkit.messageHandlers.LogHandler.postMessage(ev.key);
+        }
+    
         function getStringFromHex(content) {
             return decodeURIComponent(content.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&'));
         }

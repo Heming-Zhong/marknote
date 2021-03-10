@@ -106,6 +106,7 @@ extension VditorView {
         let userController = WKUserContentController()
         userController.add(context.coordinator, name: VditorViewRPC.isReady)
         userController.add(context.coordinator, name: VditorViewRPC.textContentDidChange)
+        userController.add(context.coordinator, name: VditorViewRPC.logHandler)
         
         
         let configuration = WKWebViewConfiguration()

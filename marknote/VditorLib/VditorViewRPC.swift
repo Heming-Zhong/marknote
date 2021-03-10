@@ -10,5 +10,5 @@ import Foundation
 public struct VditorViewRPC {
     static let isReady = "EditorIsReady"
     static let textContentDidChange = "TextContentDidChange"
-    static let logHandler = "MonacoLogHandler"
+    static let logHandler = "LogHandler"
 }

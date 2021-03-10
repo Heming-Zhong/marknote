@@ -147,6 +147,7 @@ struct ContentView: View {
     @ObservedObject var Openedfilelist: Tabitem
     var root:URL?
 
+    @State var settingpop = false
     @State var tag:Int? = 0
     
     
@@ -209,6 +210,11 @@ struct ContentView: View {
                             .padding()
                             .hoverEffect()
                             .keyboardShortcut("r", modifiers: [.command])
+                            Button(action: {
+                                settingpop.toggle()
+                            }, label: {
+                                Image(systemName: "gear")
+                            })
                         }
 
                     }

@@ -24,6 +24,7 @@
 		F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9225C6BB50005EDAB7 /* Theme.swift */; };
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
 		F9D219ED25F2831400AC924C /* Editor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9D219EC25F2831400AC924C /* Editor.bundle */; };
+		F9D21EF625F900D600AC924C /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EF525F900D600AC924C /* settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F90EDB9225C6BB50005EDAB7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		F9D219EC25F2831400AC924C /* Editor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Editor.bundle; sourceTree = "<group>"; };
+		F9D21EF525F900D600AC924C /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
 				F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */,
 				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
+				F9D21EF525F900D600AC924C /* settings.swift */,
 			);
 			path = marknote;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */,
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
 				F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */,
+				F9D21EF625F900D600AC924C /* settings.swift in Sources */,
 				F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */,
 				F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */,
 				F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */,
