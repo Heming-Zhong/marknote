@@ -46,8 +46,8 @@
             filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "rmitems(id:cur:callback:)"
             landmarkType = "9">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "body1"
             landmarkType = "24">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "body1"
             landmarkType = "24">
          </BreakpointContent>
@@ -295,87 +295,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BCBA2933-1E98-4FD0-B12F-6F996922094B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8CF1ACAF-4DB9-4901-89D1-091A3B62E7DC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "8CF1ACAF-4DB9-4901-89D1-091A3B62E7DC - a8de8807c7bb21b8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;A where A: SwiftUI.ToolbarContent&gt;(A) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.toolbar&lt;A where A1: SwiftUI.ToolbarContent&gt;(content: () -&gt; A1) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of marknote.ContentView.body1 : some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.accentColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in marknote.ContentView.body.getter : some"
-                  moduleName = "marknote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "3332">
-               </Location>
-               <Location
-                  uuid = "8CF1ACAF-4DB9-4901-89D1-091A3B62E7DC - 1626313b099a7d25"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;A where A: SwiftUI.ToolbarContent&gt;(A) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.toolbar&lt;A where A1: SwiftUI.ToolbarContent&gt;(content: () -&gt; A1) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of marknote.ContentView.body1 : some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.accentColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in marknote.ContentView.body.getter : some"
-                  moduleName = "marknote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "8CF1ACAF-4DB9-4901-89D1-091A3B62E7DC - bba9cf5ef77804aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 () -&gt; SwiftUI.Image in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.keyboardShortcut(_: SwiftUI.KeyEquivalent, modifiers: SwiftUI.EventModifiers) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #2 () -&gt; &lt;&lt;opaque return type of static SwiftUI.ToolbarContentBuilder.buildBlock&lt;A where A: SwiftUI.ToolbarContent&gt;(A) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.toolbar&lt;A where A1: SwiftUI.ToolbarContent&gt;(content: () -&gt; A1) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of marknote.ContentView.body1 : some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of (extension in SwiftUI):SwiftUI.View.accentColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in marknote.ContentView.body.getter : some"
-                  moduleName = "marknote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "722AE4B7-3ED7-449A-9A10-990C7585873E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "marknote/ContentView.swift"

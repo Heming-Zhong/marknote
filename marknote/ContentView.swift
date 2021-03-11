@@ -168,10 +168,12 @@ struct ContentView: View {
                                 if item.renaming {
                                     TextField(item.name, text: .init(
                                         get:{ item.name },
-                                        set: { input = $0}
+                                        set: { input = $0 }
                                     ), onCommit: {
                                         setname(name: input, item: item)
                                     })
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .frame(width: nil, height: nil, alignment: .center)
                                     .padding(5)
                                     .background(Color.gray.opacity(0.2))
                                 }
@@ -182,6 +184,7 @@ struct ContentView: View {
                         }).contextMenu{
                             filecontext(item: item)
                         }
+                        .frame(width: nil, height: nil, alignment: .center)
                     }
                     else {
                         empty(item: item, DirOpened: DirOpened)
@@ -193,30 +196,7 @@ struct ContentView: View {
                 .navigationBarTitle("打开的目录")
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
-                        HStack {
-                            Button(action: {showpop.toggle()}, label: {
-                                Image(systemName: "folder.badge.gear")
-                            }).sheet(isPresented: $showpop, content: {
-                                PickerView(callback: filePicked)
-                            })
-                            .padding()
-                            .hoverEffect()
-                            .keyboardShortcut("o", modifiers: [.command])
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(systemName: "arrow.clockwise")
-                            })
-                            .padding()
-                            .hoverEffect()
-                            .keyboardShortcut("r", modifiers: [.command])
-                            Button(action: {
-                                settingpop.toggle()
-                            }, label: {
-                                Image(systemName: "gear")
-                            })
-                        }
-
+                        navitool
                     }
                 }
                 body1
@@ -224,6 +204,41 @@ struct ContentView: View {
             
         }
         .statusBar(hidden: true)
+    }
+    
+    var navitool: some View {
+        HStack {
+            Button(action: {showpop.toggle()}, label: {
+                Image(systemName: "folder.badge.gear")
+            }).sheet(isPresented: $showpop, content: {
+                PickerView(callback: filePicked)
+                    .accentColor(.purple)
+            })
+            .padding()
+            .frame(width: nil, height: nil, alignment: .center)
+            .hoverEffect()
+            .keyboardShortcut("o", modifiers: [.command])
+            Button(action: {
+                
+            }, label: {
+                Image(systemName: "arrow.clockwise")
+            })
+            .padding()
+            .frame(width: nil, height: nil, alignment: .center)
+            .hoverEffect()
+            .keyboardShortcut("r", modifiers: [.command])
+            Button(action: {
+                settingpop.toggle()
+            }, label: {
+                Image(systemName: "gear")
+            }).sheet(isPresented: $settingpop, content: {
+                SettingMenu()
+            })
+            .padding()
+            .frame(width: nil, height: nil, alignment: .center)
+            .hoverEffect()
+            .keyboardShortcut("g", modifiers: [.command])
+        }
     }
 }
 
@@ -450,35 +465,52 @@ extension ContentView {
                 self.buildeditor()
             }
         }
-        .navigationTitle(Openedfilelist.name)
-        .navigationBarItems(trailing:
+//        .navigationTitle(Openedfilelist.name)
+        .toolbar() {
+            ToolbarItem(placement: .principal) {
                 HStack {
-                    Button("save") {
-                        print("saving")
-                        if self.Openedfilelist.path != nil {
-                            coordinator?.getContent({result in
-                                switch result {
-                                    case .success(let resp):
-                                        guard let newcontent = resp as? String else { return }
-                                        Openedfilelist.content = newcontent
-                                        if Openedfilelist.path != nil {
-                                            let saving_data = Openedfilelist.content.data(using: .utf8)
-                                            let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
-                                            try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
-                                            self.Openedfilelist.edited = false
-                                        }
-                                        
-                                    case .failure(let error):
-                                        print("auto save Error: \(error)")
-                                }
-                            })
-                        }
+                    Text(Openedfilelist.name).font(.headline)
+                    if self.Openedfilelist.edited == true {
+                        Text(" - 已编辑")
+                            .font(.subheadline)
+                            .frame(width: nil, height: nil, alignment: .center)
+                            .foregroundColor(Color.gray.opacity(0.5))
+//                            .background(Color.purple.opacity(0.4))
+                            .cornerRadius(1.5)
                     }
-                    .padding()
-                    .hoverEffect()
-                    .keyboardShortcut("s", modifiers: [.command])
+                    else {
+                        EmptyView()
+                    }
                 }
-            )
+            }
+            ToolbarItem(placement: .automatic, content: {
+                Button("save") {
+                    print("saving")
+                    if self.Openedfilelist.path != nil {
+                        coordinator?.getContent({result in
+                            switch result {
+                                case .success(let resp):
+                                    guard let newcontent = resp as? String else { return }
+                                    Openedfilelist.content = newcontent
+                                    if Openedfilelist.path != nil {
+                                        let saving_data = Openedfilelist.content.data(using: .utf8)
+                                        let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
+                                        try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                                        self.Openedfilelist.edited = false
+                                    }
+                                    
+                                case .failure(let error):
+                                    print("auto save Error: \(error)")
+                            }
+                        })
+                    }
+                }
+                .padding()
+                .frame(width: nil, height: nil, alignment: .center)
+                .hoverEffect()
+                .keyboardShortcut("s", modifiers: [.command])
+            })
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
     struct empty: View {
@@ -494,6 +526,8 @@ extension ContentView {
                     ), onCommit: {
                         setname(name: input, item: item)
                     })
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: nil, height: nil, alignment: .center)
                     .background(Color.gray.opacity(0.2))
                     .padding(5)
                 }
