@@ -218,3 +218,25 @@ func traversesubfiles(root: fileitems) -> fileitems {
 }
 
 var coordinator: VditorController? = nil // md深井冰....
+
+func savefile() {
+    print("saving")
+    if Openedfilelist.path != nil {
+        coordinator?.getContent({result in
+            switch result {
+                case .success(let resp):
+                    guard let newcontent = resp as? String else { return }
+                    Openedfilelist.content = newcontent
+                    if Openedfilelist.path != nil {
+                        let saving_data = Openedfilelist.content.data(using: .utf8)
+                        let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
+                        try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                        Openedfilelist.edited = false
+                    }
+                    
+                case .failure(let error):
+                    print("auto save Error: \(error)")
+            }
+        })
+    }
+}

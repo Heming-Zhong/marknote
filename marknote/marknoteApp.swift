@@ -20,6 +20,21 @@ struct marknoteApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(DirOpened: DirOpened,Openedfilelist: Openedfilelist,root: nil)
+        }.commands {
+            Command()
+        }
+    }
+}
+
+struct Command: Commands {
+    var body: some Commands {
+        CommandMenu("编辑") {
+            Button(action: {
+                savefile()
+            }, label: {
+                Text("保存")
+            })
+            .keyboardShortcut("s", modifiers: [.command])
         }
     }
 }

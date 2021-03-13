@@ -42,67 +42,67 @@ struct editorsetting {
 
 struct SettingMenu: View {
     var body: some View {
-        List {
-            GroupBox(label: Text("图床配置"), content: {
-                VStack {
-                    HStack {
-                        Text("用户名: ")
-                        TextField("", text: .init(
-                            get: {""},
-                            set: { print($0) }
-                        ),
-                        onCommit: {
-                            
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    HStack {
-                        Text("仓库名: ")
-                        TextField("", text: .init(
-                            get: {""},
-                            set: { print($0) }
-                        ),
-                        onCommit: {
-                            
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    HStack {
-                        Text("分支: ")
-                        TextField("", text: .init(
-                            get: {""},
-                            set: { print($0) }
-                        ),
-                        onCommit: {
-                            
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    HStack {
-                        Text("Token: ")
-                        SecureField("", text: .init(
-                            get: {""},
-                            set: { print($0) }
-                        ),
-                        onCommit: {
-                            
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    HStack {
-                        Text("图床类型: ")
-                        TextField("", text: .init(
-                            get: {""},
-                            set: { print($0) }
-                        ),
-                        onCommit: {
-                            
-                        })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+        Form {
+            Text("图床配置").font(.headline)
+            Section {
+                HStack {
+                    Text("用户名: ")
+                    TextField("", text: .init(
+                        get: {""},
+                        set: { print($0) }
+                    ),
+                    onCommit: {
+                        
+                    })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-            })
-            GroupBox(label: Text("编辑器设置"), content: {
+                HStack {
+                    Text("仓库名: ")
+                    TextField("", text: .init(
+                        get: {""},
+                        set: { print($0) }
+                    ),
+                    onCommit: {
+                        
+                    })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                HStack {
+                    Text("分支: ")
+                    TextField("", text: .init(
+                        get: {""},
+                        set: { print($0) }
+                    ),
+                    onCommit: {
+                        
+                    })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                HStack {
+                    Text("Token: ")
+                    SecureField("", text: .init(
+                        get: {""},
+                        set: { print($0) }
+                    ),
+                    onCommit: {
+                        
+                    })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                HStack {
+                    Text("图床类型: ")
+                    TextField("", text: .init(
+                        get: {""},
+                        set: { print($0) }
+                    ),
+                    onCommit: {
+                        
+                    })
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+            }
+            Text("编辑器设置").font(.headline)
+            Section {
                 VStack {
                     HStack {
                         Text("主题设置")
@@ -117,7 +117,7 @@ struct SettingMenu: View {
                         Text("")
                     }
                 }
-            })
+            }
         }
 
     }

@@ -115,7 +115,6 @@ func setname(name: String, item: fileitems) -> Bool {
 // MARK: - 主页面视图
 struct ContentView: View {
     
-    
     // MARK: - 选取外部文件夹，并保存到书签
     func filePicked(_ url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
@@ -149,96 +148,124 @@ struct ContentView: View {
 
     @State var settingpop = false
     @State var tag:Int? = 0
-    
-    
-    
-    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
-        HStack {
-            NavigationView {
-                List([self.DirOpened.files], children: \.children) {
-                    item in
-                    if(item.icon == "doc") {
-                        Button(action: {
-                            print("pressed")
-                            Openedfilelist.settabs(url: item.path)
-                        }, label: {
-                            HStack {
-                                Image(systemName: item.icon)
-                                if item.renaming {
-                                    TextField(item.name, text: .init(
-                                        get:{ item.name },
-                                        set: { input = $0 }
-                                    ), onCommit: {
-                                        setname(name: input, item: item)
-                                    })
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .frame(width: nil, height: nil, alignment: .center)
-                                    .padding(5)
-                                    .background(Color.gray.opacity(0.2))
-                                }
-                                else {
-                                    Text(item.name)
-                                }
-                            }
-                        }).contextMenu{
-                            filecontext(item: item)
-                        }
-                        .frame(width: nil, height: nil, alignment: .center)
-                    }
-                    else {
-                        empty(item: item, DirOpened: DirOpened)
-                            .contextMenu {
-                                foldercontext(item: item)
-                            }
-                    }
-                }
-                .navigationBarTitle("打开的目录")
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        navitool
-                    }
-                }
-                body1
-            }.accentColor(.purple)
-            
+        
+        NavigationView {
+            sidebar
+            ZStack(alignment: .leading) {
+                    body1
+            }
+            .ignoresSafeArea(edges: .all)
         }
-        .statusBar(hidden: true)
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .accentColor(.purple)
+        
     }
     
     var navitool: some View {
-        HStack {
+        
+//        let nav = NavigationLink(destination: body1, tag: .SecondPage, selection: $env.currentPage, label: { EmptyView() })
+//            .frame(width: 0, height: 0)
+        return HStack {
+//            nav
             Button(action: {showpop.toggle()}, label: {
                 Image(systemName: "folder.badge.gear")
+                    .imageScale(.medium)
+                    .frame(width: nil, height: nil, alignment: .center)
             }).sheet(isPresented: $showpop, content: {
                 PickerView(callback: filePicked)
                     .accentColor(.purple)
             })
-            .padding()
             .frame(width: nil, height: nil, alignment: .center)
             .hoverEffect()
             .keyboardShortcut("o", modifiers: [.command])
+            .padding()
             Button(action: {
-                
+                if DirOpened.files.path != nil {
+                    print("refreshing")
+                    filePicked(DirOpened.files.path!)
+                }
             }, label: {
                 Image(systemName: "arrow.clockwise")
+                    .imageScale(.medium)
+                    .frame(width: nil, height: nil, alignment: .center)
             })
-            .padding()
             .frame(width: nil, height: nil, alignment: .center)
             .hoverEffect()
             .keyboardShortcut("r", modifiers: [.command])
+            .padding()
             Button(action: {
                 settingpop.toggle()
             }, label: {
                 Image(systemName: "gear")
+                    .imageScale(.medium)
+                    .frame(width: nil, height: nil, alignment: .center)
             }).sheet(isPresented: $settingpop, content: {
                 SettingMenu()
             })
-            .padding()
             .frame(width: nil, height: nil, alignment: .center)
             .hoverEffect()
             .keyboardShortcut("g", modifiers: [.command])
+            .padding()
+            Button(action: {
+                savefile()
+            }, label: {
+                EmptyView()
+            })
+            .frame(width: 0, height: 0)
+            .keyboardShortcut("s", modifiers: [.command])
         }
+    }
+    
+    var sidebar: some View {
+        List {
+            OutlineGroup([self.DirOpened.files], children: \.children) {
+                item in
+                if(item.icon == "doc") {
+                    Button(action: {
+                        print("pressed")
+                        Openedfilelist.settabs(url: item.path)
+                    }, label: {
+                        HStack {
+                            Image(systemName: item.icon)
+                            if item.renaming {
+                                TextField(item.name, text: .init(
+                                    get:{ item.name },
+                                    set: { input = $0 }
+                                ), onCommit: {
+                                    setname(name: input, item: item)
+                                })
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(width: nil, height: nil, alignment: .center)
+                                .padding(5)
+                                .background(Color.gray.opacity(0.2))
+                            }
+                            else {
+                                Text(item.name)
+                            }
+                        }
+                    }).contextMenu{
+                        filecontext(item: item)
+                    }
+                    .frame(width: nil, height: nil, alignment: .center)
+                }
+                else {
+                    empty(item: item, DirOpened: DirOpened)
+                        .contextMenu {
+                            foldercontext(item: item)
+                        }
+                }
+            }
+        }
+        .listStyle(SidebarListStyle())
+        .navigationBarTitle("打开的目录")
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                navitool
+            }
+        }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -463,6 +490,7 @@ extension ContentView {
         VStack {
             if Openedfilelist.path != nil {
                 self.buildeditor()
+//                EditorView(document: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited, fileURL: self.Openedfilelist.path)
             }
         }
 //        .navigationTitle(Openedfilelist.name)
@@ -475,7 +503,6 @@ extension ContentView {
                             .font(.subheadline)
                             .frame(width: nil, height: nil, alignment: .center)
                             .foregroundColor(Color.gray.opacity(0.5))
-//                            .background(Color.purple.opacity(0.4))
                             .cornerRadius(1.5)
                     }
                     else {
@@ -485,30 +512,11 @@ extension ContentView {
             }
             ToolbarItem(placement: .automatic, content: {
                 Button("save") {
-                    print("saving")
-                    if self.Openedfilelist.path != nil {
-                        coordinator?.getContent({result in
-                            switch result {
-                                case .success(let resp):
-                                    guard let newcontent = resp as? String else { return }
-                                    Openedfilelist.content = newcontent
-                                    if Openedfilelist.path != nil {
-                                        let saving_data = Openedfilelist.content.data(using: .utf8)
-                                        let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
-                                        try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
-                                        self.Openedfilelist.edited = false
-                                    }
-                                    
-                                case .failure(let error):
-                                    print("auto save Error: \(error)")
-                            }
-                        })
-                    }
+                    savefile()
                 }
                 .padding()
                 .frame(width: nil, height: nil, alignment: .center)
                 .hoverEffect()
-                .keyboardShortcut("s", modifiers: [.command])
             })
         }
         .navigationBarTitleDisplayMode(.inline)

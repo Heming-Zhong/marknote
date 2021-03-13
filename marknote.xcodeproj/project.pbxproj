@@ -25,6 +25,7 @@
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
 		F9D219ED25F2831400AC924C /* Editor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9D219EC25F2831400AC924C /* Editor.bundle */; };
 		F9D21EF625F900D600AC924C /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EF525F900D600AC924C /* settings.swift */; };
+		F9D21EFB25FC4DAE00AC924C /* naviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EFA25FC4DAE00AC924C /* naviView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		F9D219EC25F2831400AC924C /* Editor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Editor.bundle; sourceTree = "<group>"; };
 		F9D21EF525F900D600AC924C /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		F9D21EFA25FC4DAE00AC924C /* naviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = naviView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */,
 				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
 				F9D21EF525F900D600AC924C /* settings.swift */,
+				F9D21EFA25FC4DAE00AC924C /* naviView.swift */,
 			);
 			path = marknote;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */,
 				F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */,
 				F90EDB9625C6BB55005EDAB7 /* VditorViewRPC.swift in Sources */,
+				F9D21EFB25FC4DAE00AC924C /* naviView.swift in Sources */,
 				F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */,
 				F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */,
 				F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */,
