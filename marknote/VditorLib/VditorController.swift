@@ -155,6 +155,95 @@ extension VditorController {
         callJavascript(javascriptString: "GetContent();", callback: block)
     }
     
+    // MARK: - TOOL BAR
+    func setBold() {
+        callJavascript(javascriptString: "SetBold();")
+    }
+    
+    func setItalic() {
+        callJavascript(javascriptString: "SetItalic();")
+    }
+    
+    func setStrike() {
+        callJavascript(javascriptString: "SetStrike();")
+    }
+    
+    func setHeader1() {
+        callJavascript(javascriptString: "SetHeader1();")
+    }
+    
+    func setHeader2() {
+        callJavascript(javascriptString: "SetHeader2();")
+    }
+    
+    func setHeader3() {
+        callJavascript(javascriptString: "SetHeader3();")
+    }
+    
+    func setHeader4() {
+        callJavascript(javascriptString: "SetHeader4();")
+    }
+    
+    func setHeader5() {
+        callJavascript(javascriptString: "SetHeader5();")
+    }
+    
+    func setHeader6() {
+        callJavascript(javascriptString: "SetHeader6();")
+    }
+    
+    func setUnorderedList() {
+        callJavascript(javascriptString: "SetUnorderedList();")
+    }
+    
+    func setOrderedList() {
+        callJavascript(javascriptString: "SetOrderedList();")
+    }
+    
+    func setCheckList() {
+        callJavascript(javascriptString: "SetCheckList();")
+    }
+    
+    func setIndent() {
+        callJavascript(javascriptString: "SetIndent();")
+    }
+    
+    func setOutdent() {
+        callJavascript(javascriptString: "SetOutdent();")
+    }
+    
+    func setQuote() {
+        callJavascript(javascriptString: "SetQuote();")
+    }
+    
+    func setLine() {
+        callJavascript(javascriptString: "SetLine();")
+    }
+    
+    func setCodeBlock() {
+        callJavascript(javascriptString: "SetCodeBlock();")
+    }
+    
+    func setInlineCode() {
+        callJavascript(javascriptString: "SetInlineCode();")
+    }
+    
+    func setTable() {
+        callJavascript(javascriptString: "SetTable();")
+    }
+    
+    func setUndo() {
+        callJavascript(javascriptString: "SetUndo();")
+    }
+    
+    func setRedo() {
+        callJavascript(javascriptString: "SetRedo();")
+    }
+    
+    func setFontFamily(_ value: String) {
+        callJavascript(javascriptString: "SetFontFamily(\"\(value)\");")
+    }
+    
     func setMode(_ value: String) {
         callJavascript(javascriptString: "SetMode(\"\(value)\");")
     }

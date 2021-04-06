@@ -1,5 +1,6 @@
 /// <reference types="./types" />
 declare class IR {
+    range: Range;
     element: HTMLPreElement;
     processTimeoutId: number;
     hlToolbarTimeoutId: number;

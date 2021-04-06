@@ -5,7 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- ⚠️生产环境请指定版本号，如 https://cdn.jsdelivr.net/npm/vditor@x.x.x/dist... -->
+    <link rel="stylesheet" href="./purple.css" />
     <link rel="stylesheet" href="../dist/index.css" />
+    <link rel="stylesheet" href="./purple.user.css" />
     <title>My Awesome Editor</title>
 </head>
 <style>
@@ -14,9 +16,12 @@
         overflow: hidden;
     }
     .vditor-reset {
-        font-size: 20pt;
+        font-size: 18pt;
         -webkit-font-smoothing: antialiased;
-        letter-spacing: 0.6px;
+        font-family: "FiraCode-Retina";
+    }
+    .vditor {
+        --textarea-background-color: #fff;
     }
     .vditor--dark {
         --panel-background-color: #121213;
@@ -28,6 +33,19 @@
     }
     .vditor--fullscreen {
         border: 0;
+    }
+    .vditor-reset h1 {
+        border-bottom: 0px !important;
+    }
+    .vditor-toolbar {
+        display: none!important;
+    }
+    .vditor-reset ol, .vditor-reset ul {
+        padding-left: 2.4em; 
+    }
+    .vditor-ir .vditor-reset>h2:before {
+        content: "H2";
+        margin-left: -48px;
     }
 </style>
 
@@ -56,30 +74,29 @@
                 enable: true
             },
             height: window.innerHeight,
-            toolbar: [
-                'headings',
-                'bold',
-                'emoji',
-                'link',
-                'upload',
-                'edit-mode',
-                'indent',
-                'outdent',
-                'table',
-                'outline', {
-                    name: 'more',
-                    toolbar: [
-                        'insert-after',
-                        'preview',
-                        'info',
-                        'help',
-                    ],
-                },
-            ],
+            // toolbar: [
+            //     'headings',
+            //     'bold',
+            //     'emoji',
+            //     'link',
+            //     'upload',
+            //     'edit-mode',
+            //     'indent',
+            //     'outdent',
+            //     'table',
+            //     'outline', {
+            //         name: 'more',
+            //         toolbar: [
+            //             'insert-after',
+            //             'preview',
+            //             'info',
+            //             'help',
+            //         ],
+            //     },
+            // ],
             tab: '    ',
             icon: 'ant',
             outline: {
-                enable: true,
                 position: 'right'
             },
             preview: {
@@ -149,6 +166,7 @@
             }
         })
     
+        
         function filename (name) {
             console.log("test")
             console.log(name)
@@ -156,17 +174,103 @@
             replace(/[\?\\/:|<>\*\[\]\(\)\$%\{\}@~]/g, '').
             replace('/\\s/g', '')
         }
-    
+        
         window.onkeydown=function(ev) {
             window.webkit.messageHandlers.LogHandler.postMessage(ev.key);
         }
-    
+        
         function getStringFromHex(content) {
             return decodeURIComponent(content.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&'));
         }
+        
+        // Native API below
+
+        SetBold = function() {
+            editor.vditor.toolbar.elements.bold.firstElementChild.dispatchEvent(new CustomEvent("click"))
+        }
+
+        SetItalic = function() {
+            editor.vditor.toolbar.elements.italic.firstElementChild.click()
+        }
+
+        SetStrike = function() {
+            editor.vditor.toolbar.elements.strike.firstElementChild.click()
+        }
+
+        SetHeader1 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[0].click()
+        }
+        
+        SetHeader2 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[1].click()
+        }
+
+        SetHeader3 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[2].click()
+        }
+
+        SetHeader4 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[3].click()
+        }
+        
+        SetHeader5 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[4].click()
+        }
+
+        SetHeader6 = function() {
+            editor.vditor.toolbar.elements.headings.lastElementChild.getElementsByTagName("button")[5].click()
+        }
+
+        SetUnorderedList = function() {
+            editor.vditor.toolbar.elements.list.firstElementChild.click()
+        }
+
+        SetOrderedList = function() {
+            editor.vditor.toolbar.elements['ordered-list'].firstElementChild.click()
+        }
+
+        SetCheckList = function() {
+            editor.vditor.toolbar.elements.check.firstElementChild.click()
+        }
+
+        SetIndent = function() {
+            editor.vditor.toolbar.elements.indent.firstElementChild.click()
+        }
+
+        SetOutdent = function() {
+            editor.vditor.toolbar.elements.outdent.firstElementChild.click()
+        }
+
+        SetQuote = function() {
+            editor.vditor.toolbar.elements.quote.firstElementChild.click()
+        }
+
+        SetLine = function() {
+            editor.vditor.toolbar.elements.line.firstElementChild.click()
+        }
+
+        SetCodeBlock = function() {
+            editor.vditor.toolbar.elements.code.firstElementChild.click()
+        }
+
+        SetInlineCode = function() {
+            editor.vditor.toolbar.elements["inline-code"].firstElementChild.click()
+        }
+
+        SetTable = function() {
+            editor.vditor.toolbar.elements.table.firstElementChild.click()
+        }
+
+        SetUndo = function() {
+            editor.vditor.toolbar.elements.undo.firstElementChild.click()
+        }
+
+        SetRedo = function() {
+            editor.vditor.toolbar.elements.redo.firstElementChild.click()
+        }
 
         GetContent = function() {
-            console.log(editor.getValue())
+            // console.log(editor.getValue())
             return editor.getValue()
         }
 
@@ -175,6 +279,10 @@
             editor.setValue(text)
             // 当且仅当以View的数据为准时会SetContent，所以需要把edited设为false
             edited = false
+        }
+                    
+        SetFontFamily = function(font) {
+            
         }
 
         function handleChange(mediaQueryListEvent) {

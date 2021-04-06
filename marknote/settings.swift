@@ -43,72 +43,71 @@ struct editorsetting {
 struct SettingMenu: View {
     var body: some View {
         Form {
-            Text("图床配置").font(.headline)
-            Section {
-                HStack {
-                    Text("用户名: ")
-                    TextField("", text: .init(
-                        get: {""},
-                        set: { print($0) }
-                    ),
-                    onCommit: {
-                        
-                    })
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("仓库名: ")
-                    TextField("", text: .init(
-                        get: {""},
-                        set: { print($0) }
-                    ),
-                    onCommit: {
-                        
-                    })
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("分支: ")
-                    TextField("", text: .init(
-                        get: {""},
-                        set: { print($0) }
-                    ),
-                    onCommit: {
-                        
-                    })
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("Token: ")
-                    SecureField("", text: .init(
-                        get: {""},
-                        set: { print($0) }
-                    ),
-                    onCommit: {
-                        
-                    })
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("图床类型: ")
-                    TextField("", text: .init(
-                        get: {""},
-                        set: { print($0) }
-                    ),
-                    onCommit: {
-                        
-                    })
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            Section(header: Text("图床配置")) {
+                List {
+                    HStack {
+                        Text("用户名: ")
+                        TextField("", text: .init(
+                            get: {""},
+                            set: { print($0) }
+                        ),
+                        onCommit: {
+                            
+                        })
+                    }
+                    HStack {
+                        Text("仓库名: ")
+                        TextField("", text: .init(
+                            get: {""},
+                            set: { print($0) }
+                        ),
+                        onCommit: {
+                            
+                        })
+    //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    HStack {
+                        Text("分支: ")
+                        TextField("", text: .init(
+                            get: {""},
+                            set: { print($0) }
+                        ),
+                        onCommit: {
+                            
+                        })
+    //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    HStack {
+                        Text("Token: ")
+                        SecureField("", text: .init(
+                            get: {""},
+                            set: { print($0) }
+                        ),
+                        onCommit: {
+                            
+                        })
+                    }
+                    HStack {
+                        Text("图床类型: ")
+                        TextField("", text: .init(
+                            get: {""},
+                            set: { print($0) }
+                        ),
+                        onCommit: {
+                            
+                        })
+                    }
                 }
             }
-            Text("编辑器设置").font(.headline)
-            Section {
-                VStack {
+            
+            Section(header: Text("编辑器设置")) {
+                List {
                     HStack {
                         Text("主题设置")
                     }
                     HStack {
                         Text("字体大小")
+//                        Stepper(<#T##title: StringProtocol##StringProtocol#>, value: <#T##Binding<Strideable>#>)
                     }
                     HStack {
                         Text("字体类型")

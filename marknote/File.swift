@@ -63,21 +63,6 @@ struct PickerView: View {
     }
 }
 
-#if DEBUG
-struct PickerView_Preview: PreviewProvider {
-    static var previews: some View {
-        func filePicked(_ url: URL) {
-            print("Filename: \(url)")
-        }
-        return PickerView(callback: filePicked)
-            .aspectRatio(3/2, contentMode: .fit)
-    }
-}
-#endif
-
-
-
-
 struct filecontent: Identifiable {
     var id = UUID()
     var path: URL? = nil
@@ -104,7 +89,7 @@ class Tabitem: ObservableObject {
                         if path != nil {
                             let saving_data = self.content.data(using: .utf8)
                             let tempwrapper = FileWrapper(regularFileWithContents: saving_data!)
-                            try! tempwrapper.write(to: (Openedfilelist.path)!, originalContentsURL: nil)
+                            try! tempwrapper.write(to: (self.path)!, originalContentsURL: nil)
                             self.edited = false
                         }
 //                        print(parent.code)
@@ -179,6 +164,12 @@ struct fileitems: Identifiable{
     var renaming: Bool = false
 }
 
+extension fileitems: Comparable {
+    static func < (lhs: fileitems, rhs: fileitems) -> Bool {
+        return lhs.name < rhs.name
+    }
+}
+
 // 打开的目录
 class TargetDir: ObservableObject {
     @Published var files: fileitems = fileitems()
@@ -213,6 +204,7 @@ func traversesubfiles(root: fileitems) -> fileitems {
         let all = traversesubfiles(root: item)
         res.children?.append(all)
     }
+    res.children?.sort(by: <)
     
     return res
 }
@@ -239,4 +231,237 @@ func savefile() {
             }
         })
     }
+}
+
+// MARK: - 重命名
+func renamecallback(cur: inout fileitems) {
+    cur.renaming = true
+}
+
+func setcontextid(item: fileitems) {
+    selectedid = item.id
+    setfileitems(id: selectedid, cur: &DirOpened.files, callback: renamecallback)
+}
+
+func setfileitems(id: UUID?, cur: inout fileitems, callback: (_ cur: inout fileitems) -> ()) {
+    if cur.id == id {
+//        cur.renaming = true
+        callback(&cur)
+    }
+    else {
+        if cur.children != nil {
+            for i in 0..<cur.children!.count {
+                setfileitems(id: id, cur: &cur.children![i], callback: callback)
+            }
+        }
+    }
+}
+
+
+// MARK: - 创建文件
+func newfilecallback(cur: inout fileitems) {
+    let item = fileitems(name: "Untitled.md", path: cur.path?.appendingPathComponent("Untitled.md", isDirectory: false), icon: "doc", renaming: true)
+
+    print(item.path)
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
+        print("Error: no permission")
+        return
+    }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
+    
+    let _string = ""
+    if let data = _string.data(using: .utf8) {
+        do {
+            try data.write(to: item.path!)
+            print("[SUCCESS] new file created")
+        } catch {
+            print("[ERROR] new file failed...")
+            print(error)
+            defer {
+                cur.path!.stopAccessingSecurityScopedResource()
+            }
+            return
+        }
+    }
+    
+    cur.children?.append(item)
+    cur.children?.sort(by: <)
+}
+
+func addnewfileAt(item: fileitems) -> Bool {
+    setfileitems(id: item.id, cur: &DirOpened.files, callback: newfilecallback)
+    return true
+}
+
+// MARK: - 创建文件夹
+func newfoldercallback(cur: inout fileitems) {
+    let item = fileitems(name: "Untitled", path: cur.path?.appendingPathComponent("Untitled", isDirectory: true), children: [], icon: "folder", renaming: true)
+    print(item.path)
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
+        print("Error: no permission")
+        return
+    }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
+    
+    
+    let manager = FileManager.default
+    do {
+        try manager.createDirectory(at: item.path!, withIntermediateDirectories: false, attributes: nil)
+        print("[SUCCESS] new folder created")
+    } catch {
+        print("[ERROR] new folder create failed: \(error)")
+        return
+    }
+    
+    cur.children?.append(item)
+    cur.children?.sort(by: <)
+}
+
+func addnewfolderAt(item: fileitems) {
+    setfileitems(id: item.id, cur: &DirOpened.files, callback: newfoldercallback)
+}
+
+// MARK: - 删除项目
+func rmitemcallback(cur: inout fileitems, index: Int) {
+    print(cur.children![index].path)
+    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    let bookmark = documentsUrl?.appendingPathComponent(".book")
+    let bookmarkData = try! Data(contentsOf: bookmark!)
+    
+    var isStale = false
+    let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+    guard mark.startAccessingSecurityScopedResource() else {
+        print("Error: no permission")
+        return
+    }
+    
+    defer { mark.stopAccessingSecurityScopedResource() }
+    let manager = FileManager.default
+    do {
+        try manager.removeItem(at: cur.children![index].path!)
+        print("[SUCCESS] remove item success")
+    } catch {
+        print("[ERROR] remove item failed: \(error)")
+        return
+    }
+    cur.children?.remove(at: index)
+}
+
+func rmitems(id: UUID?, cur: inout fileitems, callback: (_ cur: inout fileitems, _ index: Int) -> ()) {
+    if cur.children != nil {
+        for i in 0..<cur.children!.count {
+            // 删除成功后children长度发生变化，所以要实时判断是否越界
+            if i >= cur.children!.count {
+                break
+            }
+            if cur.children![i].id == id {
+                callback(&cur, i)
+            }
+            if i < cur.children!.count {
+                rmitems(id: id, cur: &cur.children![i], callback: callback)
+            }
+        }
+    }
+}
+
+func removeitemAt(item: fileitems) -> Bool {
+    rmitems(id: item.id, cur: &DirOpened.files, callback: rmitemcallback)
+    return true
+}
+
+func setsubpath(cur: inout fileitems) {
+    if cur.children != nil {
+        for i in 0..<cur.children!.count {
+            cur.children![i].path = cur.path?.appendingPathComponent(cur.children![i].name)
+            setsubpath(cur: &cur.children![i])
+        }
+    }
+}
+
+// MARK: - 重新设置名称
+func findandsetname(id: UUID?, cur: inout fileitems, newname: String) {
+    if cur.id == id {
+        cur.renaming = false
+        let manager = FileManager.default
+        
+        let old = cur.path
+        let new = cur.path?.deletingLastPathComponent().appendingPathComponent(newname)
+        let parent = cur.path?.deletingLastPathComponent()
+        
+        // gain folder access
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let bookmark = documentsUrl?.appendingPathComponent(".book")
+        let bookmarkData = try! Data(contentsOf: bookmark!)
+        
+        var isStale = false
+        let mark = try! URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
+        guard mark.startAccessingSecurityScopedResource() else {
+            print("Error: no permission")
+            return
+        }
+        
+        defer { mark.stopAccessingSecurityScopedResource() }
+        
+        do {
+            try manager.moveItem(at: old!, to: new!)
+        } catch {
+            print("[ERROR] rename file failed...\(error)")
+            return
+        }
+        
+        cur.path = new
+        cur.name = newname
+        // file or folder
+        if cur.children == nil {
+            // 如果要更新的文件名是当前打开的文件
+            if old == Openedfilelist.path {
+                Openedfilelist.path = new
+            }
+            print("[SUCCESS] rename file success...")
+        }
+        else {
+            /*
+                注意：为什么重命名文件和目录要分开？
+                重命名目录还涉及到对于目录下的所有项
+                在DirOpened中的记录进行修改，否则会
+                导致这些项的后续操作出错
+            */
+            setsubpath(cur: &cur)
+            print("[SUCCESS] rename folder success...")
+        }
+        
+    }
+    else {
+        if cur.children != nil {
+            for i in 0..<cur.children!.count {
+                findandsetname(id: id, cur: &cur.children![i], newname: newname)
+            }
+        }
+    }
+}
+
+func setname(name: String, item: fileitems) -> Bool {
+    if name == "" {
+        // invalid name, do noting
+        return false
+    }
+    else {
+        findandsetname(id: item.id, cur: &DirOpened.files, newname: name)
+    }
+    print(name)
+    return true
 }

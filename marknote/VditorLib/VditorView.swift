@@ -114,7 +114,8 @@ extension VditorView {
         configuration.userContentController = userController
         
         
-        let webView = WKWebView(frame: .zero, configuration: configuration)
+//        let webView = WKWebView(frame: .zero, configuration: configuration)
+        let webView = VditorWebView(frame: .zero, configuration: configuration)
         webView.navigationDelegate = context.coordinator
         webView.scrollView.isScrollEnabled = false
         
@@ -135,6 +136,8 @@ extension VditorView {
         context.coordinator.setWebView(webView)
         // 调用setContent函数进行内容初始化
         context.coordinator.setContent(code)
+//        webView.addInputAccessoryView(toolbar: context.coordinator.getToolbar(height: 44))
+        webView.accessoryView = context.coordinator.getToolbar(height: 44)
         
         return webView
     }

@@ -1,5 +1,6 @@
 /// <reference types="./types" />
 declare class WYSIWYG {
+    range: Range;
     element: HTMLPreElement;
     popover: HTMLDivElement;
     selectPopover: HTMLDivElement;

@@ -1,5 +1,6 @@
 /// <reference types="./types" />
 declare class Editor {
+    range: Range;
     element: HTMLPreElement;
     composingLock: boolean;
     processTimeoutId: number;

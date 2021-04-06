@@ -12,7 +12,6 @@
 		F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */; };
 		F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */; };
 		F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4625C6B96D005EDAB7 /* Persistence.swift */; };
-		F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */; };
 		F90EDB5525C6B96D005EDAB7 /* marknoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */; };
 		F90EDB6025C6B96D005EDAB7 /* marknoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */; };
 		F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB8725C6BAF5005EDAB7 /* File.swift */; };
@@ -23,9 +22,12 @@
 		F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9125C6BB50005EDAB7 /* Mode.swift */; };
 		F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9225C6BB50005EDAB7 /* Theme.swift */; };
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
+		F978ED282618769C008C325D /* marknote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F978ED262618769C008C325D /* marknote.xcdatamodeld */; };
+		F978ED2D261877F2008C325D /* sidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F978ED2C261877F2008C325D /* sidebarView.swift */; };
+		F993FA4226130F2500917D57 /* toolbars.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993FA4126130F2500917D57 /* toolbars.swift */; };
+		F993FA47261472B600917D57 /* FileContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993FA46261472B600917D57 /* FileContext.swift */; };
 		F9D219ED25F2831400AC924C /* Editor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9D219EC25F2831400AC924C /* Editor.bundle */; };
 		F9D21EF625F900D600AC924C /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EF525F900D600AC924C /* settings.swift */; };
-		F9D21EFB25FC4DAE00AC924C /* naviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EFA25FC4DAE00AC924C /* naviView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,6 @@
 		F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F90EDB4625C6B96D005EDAB7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = marknote.xcdatamodel; sourceTree = "<group>"; };
 		F90EDB4B25C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F90EDB5025C6B96D005EDAB7 /* marknoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marknoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteTests.swift; sourceTree = "<group>"; };
@@ -68,9 +69,12 @@
 		F90EDB9125C6BB50005EDAB7 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		F90EDB9225C6BB50005EDAB7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		F978ED272618769C008C325D /* marknote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = marknote.xcdatamodel; sourceTree = "<group>"; };
+		F978ED2C261877F2008C325D /* sidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidebarView.swift; sourceTree = "<group>"; };
+		F993FA4126130F2500917D57 /* toolbars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolbars.swift; sourceTree = "<group>"; };
+		F993FA46261472B600917D57 /* FileContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContext.swift; sourceTree = "<group>"; };
 		F9D219EC25F2831400AC924C /* Editor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Editor.bundle; sourceTree = "<group>"; };
 		F9D21EF525F900D600AC924C /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
-		F9D21EFA25FC4DAE00AC924C /* naviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = naviView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,13 +130,14 @@
 				F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */,
 				F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */,
 				F90EDB4625C6B96D005EDAB7 /* Persistence.swift */,
+				F978ED262618769C008C325D /* marknote.xcdatamodeld */,
 				F90EDB8C25C6BB50005EDAB7 /* VditorLib */,
 				F90EDB8725C6BAF5005EDAB7 /* File.swift */,
 				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
-				F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */,
 				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
 				F9D21EF525F900D600AC924C /* settings.swift */,
-				F9D21EFA25FC4DAE00AC924C /* naviView.swift */,
+				F993FA46261472B600917D57 /* FileContext.swift */,
+				F978ED2C261877F2008C325D /* sidebarView.swift */,
 			);
 			path = marknote;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				F90EDB9125C6BB50005EDAB7 /* Mode.swift */,
 				F90EDB9225C6BB50005EDAB7 /* Theme.swift */,
 				F90EDB9325C6BB50005EDAB7 /* Bundle.swift */,
+				F993FA4126130F2500917D57 /* toolbars.swift */,
 			);
 			path = VditorLib;
 			sourceTree = "<group>";
@@ -308,19 +314,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */,
+				F978ED2D261877F2008C325D /* sidebarView.swift in Sources */,
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
+				F978ED282618769C008C325D /* marknote.xcdatamodeld in Sources */,
 				F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */,
 				F9D21EF625F900D600AC924C /* settings.swift in Sources */,
 				F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */,
 				F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */,
 				F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */,
 				F90EDB9625C6BB55005EDAB7 /* VditorViewRPC.swift in Sources */,
-				F9D21EFB25FC4DAE00AC924C /* naviView.swift in Sources */,
-				F90EDB4A25C6B96D005EDAB7 /* marknote.xcdatamodeld in Sources */,
 				F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */,
 				F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */,
 				F90EDB9825C6BB55005EDAB7 /* VditorController.swift in Sources */,
 				F90EDB9725C6BB55005EDAB7 /* Data.swift in Sources */,
+				F993FA47261472B600917D57 /* FileContext.swift in Sources */,
+				F993FA4226130F2500917D57 /* toolbars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,12 +650,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F90EDB4825C6B96D005EDAB7 /* marknote.xcdatamodeld */ = {
+		F978ED262618769C008C325D /* marknote.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */,
+				F978ED272618769C008C325D /* marknote.xcdatamodel */,
 			);
-			currentVersion = F90EDB4925C6B96D005EDAB7 /* marknote.xcdatamodel */;
+			currentVersion = F978ED272618769C008C325D /* marknote.xcdatamodel */;
 			path = marknote.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

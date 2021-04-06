@@ -1,5 +1,5 @@
 /// <reference types="./types" />
-export declare const getEditorRange: (element: HTMLElement) => Range;
+export declare const getEditorRange: (vditor: IVditor) => Range;
 export declare const getCursorPosition: (editor: HTMLElement) => {
     left: number;
     top: number;
