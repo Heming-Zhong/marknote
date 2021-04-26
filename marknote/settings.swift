@@ -47,6 +47,7 @@ struct SettingMenu: View {
                 List {
                     HStack {
                         Text("用户名: ")
+                        Spacer()
                         TextField("", text: .init(
                             get: {""},
                             set: { print($0) }
@@ -57,6 +58,7 @@ struct SettingMenu: View {
                     }
                     HStack {
                         Text("仓库名: ")
+                        Spacer()
                         TextField("", text: .init(
                             get: {""},
                             set: { print($0) }
@@ -68,6 +70,7 @@ struct SettingMenu: View {
                     }
                     HStack {
                         Text("分支: ")
+                        Spacer()
                         TextField("", text: .init(
                             get: {""},
                             set: { print($0) }
@@ -79,6 +82,7 @@ struct SettingMenu: View {
                     }
                     HStack {
                         Text("Token: ")
+                        Spacer()
                         SecureField("", text: .init(
                             get: {""},
                             set: { print($0) }
@@ -89,6 +93,7 @@ struct SettingMenu: View {
                     }
                     HStack {
                         Text("图床类型: ")
+                        Spacer()
                         TextField("", text: .init(
                             get: {""},
                             set: { print($0) }

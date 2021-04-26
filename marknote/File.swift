@@ -201,6 +201,9 @@ func traversesubfiles(root: fileitems) -> fileitems {
     // recurse
     for ele in sublist {
         let item = fileitems(name: ele.lastPathComponent, path: ele)
+        if !ele.hasDirectoryPath && item.path?.pathExtension != "md" {
+            continue
+        }
         let all = traversesubfiles(root: item)
         res.children?.append(all)
     }

@@ -49,7 +49,6 @@ extension ContentView {
                     }
                 }
             }
-            
             Section(header: Text("打开的目录")) {
                 OpenedFileTree
             }
@@ -61,10 +60,10 @@ extension ContentView {
             ToolbarItem(placement: .navigationBarLeading) {
                 TopToolBarLeading
             }
-            ToolbarItem(placement: .bottomBar) {
-                navitool
-                    .hidden()
-            }
+//            ToolbarItem(placement: .navigation) {
+//                navitool
+//                    .hidden()
+//            }
         }
         .edgesIgnoringSafeArea(.all)
     }

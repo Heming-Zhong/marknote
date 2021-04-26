@@ -67,6 +67,7 @@ extension WKWebView {
 //    }
 }
 
+/// get ability to set inputAccessoryView (bar above the soft keyboard) of WKWebView
 class VditorWebView: WKWebView {
     var accessoryView: UIView?
     override var inputAccessoryView: UIView? {
@@ -111,16 +112,6 @@ extension VditorController {
         
         let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil )
         
-        let view = AnyView {
-            ScrollView(Axis.Set([.horizontal]), showsIndicators: true, content: {
-                Button(action: {
-                    
-                }, label: {
-                    Text("test")
-                })
-            })
-        }
-
         toolBar.setItems([
             BoldButton,
             ItalicButton,
@@ -148,11 +139,9 @@ extension VditorController {
         ], animated: false)
         toolBar.isUserInteractionEnabled = true
         
-//        toolBar.autoresizingMask =
         let toolBarScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 3200, height: height))
         toolBarScrollView.frame = toolBar.frame
 
-//        toolBarScrollView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         toolBarScrollView.showsHorizontalScrollIndicator = false
         toolBarScrollView.showsVerticalScrollIndicator = false
         toolBarScrollView.alwaysBounceVertical = false
@@ -163,7 +152,6 @@ extension VditorController {
         toolBar.sizeToFit()
         toolBarScrollView.addSubview(toolBar)
         toolBarScrollView.sizeToFit()
-//        return UIHostingController(rootView: view).view
         return toolBarScrollView
     }
 

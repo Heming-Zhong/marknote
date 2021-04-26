@@ -28,9 +28,9 @@ extension ContentView {
                     removeitemAt(item: item)
                 }, label: {
                     Text("删除")
-                        .accentColor(.red)
+                        .foregroundColor(.red)
                     Image(systemName: "trash")
-                        .accentColor(.red)
+                        .foregroundColor(.red)
                 })
             }
         }
@@ -54,9 +54,9 @@ extension ContentView {
                     removeitemAt(item: item)
                 }, label: {
                     Text("删除")
-                        .accentColor(.red)
+                        .foregroundColor(.red)
                     Image(systemName: "trash")
-                        .accentColor(.red)
+                        .foregroundColor(.red)
                 })
                 Button(action: {
                     print("new folder started...")
@@ -76,7 +76,9 @@ extension ContentView {
                     addtoBookmark(item: item)
                 }, label: {
                     Text("加入书签")
+                        .foregroundColor(.purple)
                     Image(systemName: "bookmark")
+                        .foregroundColor(.purple)
                 })
             }
         }

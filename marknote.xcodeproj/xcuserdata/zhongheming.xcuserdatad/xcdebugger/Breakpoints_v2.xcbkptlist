@@ -7,277 +7,133 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C218ED5A-EB47-4DC8-B1FC-536F175F4E4A"
-            shouldBeEnabled = "No"
+            uuid = "7A46BF5E-DDBC-406E-9081-7FBE8AB43CED"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
+            filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "update(elementGetter:elementSetter:currentElementState:)"
-            landmarkType = "7">
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1AF2934-2A3B-4308-8232-1C667CA0CC7B"
-            shouldBeEnabled = "No"
+            uuid = "0AE3EFF1-CB9B-4B4F-9FB5-ACB805063425"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
+            filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "update(elementGetter:elementSetter:currentElementState:)"
-            landmarkType = "7">
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D2EF3C54-F06B-460F-8F21-1FD0605472C0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "update(elementGetter:elementSetter:currentElementState:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "015E3673-54E4-4D5E-A853-3FD8F141671B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "init(code:saving:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0202AE90-B5E5-4D13-9DE4-53507448BDB6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "updateUIView(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B39FE432-E1E3-4AF2-9846-C98419469E1C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2AA566C6-A044-49A3-A208-4B0B0946C466"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D510DA2F-81A5-47B5-9DB1-283306CED15F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FCE450F9-B43F-43AD-AE3C-BA6D783B2A2C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DA2A4E4E-71B9-4144-905D-71BBAF32B94B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "update(elementGetter:elementSetter:currentElementState:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D9F41851-3411-46CB-AF11-52AE6AE4B524"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3C61C46C-8A37-45B4-AFD2-23B7BAA18A25"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/MuyaLib/MonacoController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "722AE4B7-3ED7-449A-9A10-990C7585873E"
+            uuid = "6E633421-FD6A-420F-BE1B-3BB92AC4BB8E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "filePicked(_:)"
-            landmarkType = "7">
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA"
+            uuid = "2DA6F9A4-7B75-41C5-BEDB-8D5AC40508A4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "ContentView"
-            landmarkType = "14">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "marknote/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - 81ee3a2f9620eee9"
+                  uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307 - 644edcee6699e62c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of marknote.ContentView.showpop : Swift.Bool"
+                  symbolName = "marknote.SwipeController.TransitioningDelegate.init(offset: SwiftUI.Binding&lt;CoreGraphics.CGFloat&gt;) -&gt; marknote.SwipeController&lt;A&gt;.TransitioningDelegate"
                   moduleName = "marknote"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "156">
                </Location>
                <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - f9df375049c9b8c7"
+                  uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307 - b0e1796bc54a2f5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "marknote.ContentView.showpop.getter : Swift.Bool"
+                  symbolName = "marknote.SwipeController.TransitioningDelegate.interactionController.getter : Swift.Optional&lt;__C.UIPercentDrivenInteractiveTransition&gt;"
                   moduleName = "marknote"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "113">
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "115">
                </Location>
                <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - 602119c528b0e0d3"
+                  uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307 - 32e3ae07cd4643f9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "marknote.ContentView.showpop.setter : Swift.Bool"
+                  symbolName = "marknote.SwipeController.TransitioningDelegate.interactionController.setter : Swift.Optional&lt;__C.UIPercentDrivenInteractiveTransition&gt;"
                   moduleName = "marknote"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "124">
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "180">
                </Location>
                <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - 953f4d381794f011"
+                  uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307 - 7f936ae7d4c9d765"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "marknote.ContentView.showpop.modify : Swift.Bool"
+                  symbolName = "marknote.SwipeController.TransitioningDelegate.interactionController.modify : Swift.Optional&lt;__C.UIPercentDrivenInteractiveTransition&gt;"
                   moduleName = "marknote"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
@@ -285,37 +141,22 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "57">
+                  offsetFromSymbolStart = "75">
                </Location>
                <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - 11c8074aea5b5ad3"
+                  uuid = "72DD50A8-0B4D-434D-B2E7-8BB05E605307 - e60f534774ae9bc2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "marknote.ContentView.showpop.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "marknote.SwipeController.TransitioningDelegate.interactionController.modify : Swift.Optional&lt;__C.UIPercentDrivenInteractiveTransition&gt; with unmangled suffix &quot;.resume.0&quot;"
                   moduleName = "marknote"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "25">
-               </Location>
-               <Location
-                  uuid = "8FA8F246-7BC5-4CA5-9A12-C8C4F623D5DA - 82b3a22b83a70df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "marknote.ContentView.$showpop.getter : SwiftUI.Binding&lt;Swift.Bool&gt;"
-                  moduleName = "marknote"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhongheming/Documents/Xcode%20Projects/marknote/marknote/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "121">
+                  startingLineNumber = "267"
+                  endingLineNumber = "267"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -323,33 +164,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "18E0FD1B-FC94-47BB-BE5A-5F7538BA6411"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "marknote/SpiltView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "updateUIViewController(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D3208333-A7BD-4A43-B630-96687D83481F"
+            uuid = "D9013F12-849B-4246-B86E-542A1C6E20DF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "marknote/File.swift"
+            filePath = "marknote/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
-            landmarkName = "newfoldercallback(cur:)"
-            landmarkType = "9">
+            startingLineNumber = "467"
+            endingLineNumber = "467"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
