@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// deprecated
 public enum CodeMode: String {
     case apl = "apl"
     case pgp = "pgp"

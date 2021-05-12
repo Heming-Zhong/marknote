@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="BookMarks" representedClassName="BookMarks" syncable="YES" codeGenerationType="class">
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Container" representedClassName="Container" syncable="YES" codeGenerationType="class"/>
     <entity name="EditorSetting" representedClassName="EditorSetting" syncable="YES" codeGenerationType="class">
         <attribute name="fontfamily" optional="YES" attributeType="String"/>
         <attribute name="fontsize" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
@@ -21,5 +22,6 @@
         <element name="BookMarks" positionX="-63" positionY="-18" width="128" height="73"/>
         <element name="EditorSetting" positionX="-45" positionY="18" width="128" height="74"/>
         <element name="UploadSettings" positionX="-27" positionY="54" width="128" height="119"/>
+        <element name="Container" positionX="-45" positionY="63" width="128" height="29"/>
     </elements>
 </model>

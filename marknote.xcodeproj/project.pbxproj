@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */; };
-		F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */; };
+		F90EDB4025C6B96C005EDAB7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3F25C6B96C005EDAB7 /* MainView.swift */; };
 		F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */; };
 		F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */; };
 		F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4625C6B96D005EDAB7 /* Persistence.swift */; };
@@ -22,6 +22,15 @@
 		F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9125C6BB50005EDAB7 /* Mode.swift */; };
 		F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9225C6BB50005EDAB7 /* Theme.swift */; };
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
+		F96EAB9326399BBE00DCA62A /* TrackpadKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EAB9226399BBE00DCA62A /* TrackpadKeyboard.swift */; };
+		F96EAB9C26399F0500DCA62A /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EAB9B26399F0500DCA62A /* EditorView.swift */; };
+		F9707584264BCC9300543CFE /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707583264BCC9300543CFE /* FilePicker.swift */; };
+		F9707587264BD8F900543CFE /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707586264BD8F900543CFE /* PrimaryView.swift */; };
+		F970758A264BD9F000543CFE /* FileTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707589264BD9F000543CFE /* FileTreeView.swift */; };
+		F970758C264BDAAA00543CFE /* ShortcutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F970758B264BDAAA00543CFE /* ShortcutListView.swift */; };
+		F970758E264BDB2100543CFE /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F970758D264BDB2100543CFE /* DrawerView.swift */; };
+		F9707591264BDC3E00543CFE /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707590264BDC3E00543CFE /* Editor.swift */; };
+		F9707593264BDC9D00543CFE /* ShadowCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707592264BDC9D00543CFE /* ShadowCover.swift */; };
 		F978ED282618769C008C325D /* marknote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F978ED262618769C008C325D /* marknote.xcdatamodeld */; };
 		F978ED2D261877F2008C325D /* sidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F978ED2C261877F2008C325D /* sidebarView.swift */; };
 		F993FA4226130F2500917D57 /* toolbars.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993FA4126130F2500917D57 /* toolbars.swift */; };
@@ -50,7 +59,7 @@
 /* Begin PBXFileReference section */
 		F90EDB3A25C6B96C005EDAB7 /* marknote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marknote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteApp.swift; sourceTree = "<group>"; };
-		F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F90EDB3F25C6B96C005EDAB7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F90EDB4625C6B96D005EDAB7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -69,6 +78,15 @@
 		F90EDB9125C6BB50005EDAB7 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		F90EDB9225C6BB50005EDAB7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		F96EAB9226399BBE00DCA62A /* TrackpadKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadKeyboard.swift; sourceTree = "<group>"; };
+		F96EAB9B26399F0500DCA62A /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		F9707583264BCC9300543CFE /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
+		F9707586264BD8F900543CFE /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
+		F9707589264BD9F000543CFE /* FileTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTreeView.swift; sourceTree = "<group>"; };
+		F970758B264BDAAA00543CFE /* ShortcutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListView.swift; sourceTree = "<group>"; };
+		F970758D264BDB2100543CFE /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		F9707590264BDC3E00543CFE /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
+		F9707592264BDC9D00543CFE /* ShadowCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCover.swift; sourceTree = "<group>"; };
 		F978ED272618769C008C325D /* marknote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = marknote.xcdatamodel; sourceTree = "<group>"; };
 		F978ED2C261877F2008C325D /* sidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidebarView.swift; sourceTree = "<group>"; };
 		F993FA4126130F2500917D57 /* toolbars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolbars.swift; sourceTree = "<group>"; };
@@ -125,19 +143,17 @@
 		F90EDB3C25C6B96C005EDAB7 /* marknote */ = {
 			isa = PBXGroup;
 			children = (
-				F9D219EC25F2831400AC924C /* Editor.bundle */,
+				F9707585264BD8DE00543CFE /* Views */,
+				F96EAB9A26399EEB00DCA62A /* Editor */,
+				F96EAB9126399B6500DCA62A /* Inputs */,
+				F96EAB8A26399A8F00DCA62A /* CoreData */,
+				F96EAB83263961DB00DCA62A /* FileLib */,
 				F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */,
-				F90EDB3F25C6B96C005EDAB7 /* ContentView.swift */,
+				F90EDB3F25C6B96C005EDAB7 /* MainView.swift */,
 				F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */,
-				F90EDB4625C6B96D005EDAB7 /* Persistence.swift */,
-				F978ED262618769C008C325D /* marknote.xcdatamodeld */,
-				F90EDB8C25C6BB50005EDAB7 /* VditorLib */,
-				F90EDB8725C6BAF5005EDAB7 /* File.swift */,
 				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
 				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
 				F9D21EF525F900D600AC924C /* settings.swift */,
-				F993FA46261472B600917D57 /* FileContext.swift */,
-				F978ED2C261877F2008C325D /* sidebarView.swift */,
 			);
 			path = marknote;
 			sourceTree = "<group>";
@@ -181,6 +197,73 @@
 				F993FA4126130F2500917D57 /* toolbars.swift */,
 			);
 			path = VditorLib;
+			sourceTree = "<group>";
+		};
+		F96EAB83263961DB00DCA62A /* FileLib */ = {
+			isa = PBXGroup;
+			children = (
+				F993FA46261472B600917D57 /* FileContext.swift */,
+				F90EDB8725C6BAF5005EDAB7 /* File.swift */,
+				F9707583264BCC9300543CFE /* FilePicker.swift */,
+			);
+			path = FileLib;
+			sourceTree = "<group>";
+		};
+		F96EAB8A26399A8F00DCA62A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F90EDB4625C6B96D005EDAB7 /* Persistence.swift */,
+				F978ED262618769C008C325D /* marknote.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F96EAB9126399B6500DCA62A /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				F96EAB9226399BBE00DCA62A /* TrackpadKeyboard.swift */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		F96EAB9A26399EEB00DCA62A /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				F9D219EC25F2831400AC924C /* Editor.bundle */,
+				F90EDB8C25C6BB50005EDAB7 /* VditorLib */,
+				F96EAB9B26399F0500DCA62A /* EditorView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		F9707585264BD8DE00543CFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F970758F264BDBDD00543CFE /* PrimaryComponent */,
+				F9707588264BD9BA00543CFE /* DrawerComponent */,
+				F9707586264BD8F900543CFE /* PrimaryView.swift */,
+				F970758D264BDB2100543CFE /* DrawerView.swift */,
+				F9707592264BDC9D00543CFE /* ShadowCover.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F9707588264BD9BA00543CFE /* DrawerComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F978ED2C261877F2008C325D /* sidebarView.swift */,
+				F9707589264BD9F000543CFE /* FileTreeView.swift */,
+				F970758B264BDAAA00543CFE /* ShortcutListView.swift */,
+			);
+			path = DrawerComponent;
+			sourceTree = "<group>";
+		};
+		F970758F264BDBDD00543CFE /* PrimaryComponent */ = {
+			isa = PBXGroup;
+			children = (
+				F9707590264BDC3E00543CFE /* Editor.swift */,
+			);
+			path = PrimaryComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,22 +396,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9707593264BDC9D00543CFE /* ShadowCover.swift in Sources */,
 				F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */,
 				F978ED2D261877F2008C325D /* sidebarView.swift in Sources */,
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
 				F978ED282618769C008C325D /* marknote.xcdatamodeld in Sources */,
+				F970758A264BD9F000543CFE /* FileTreeView.swift in Sources */,
 				F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */,
 				F9D21EF625F900D600AC924C /* settings.swift in Sources */,
-				F90EDB4025C6B96C005EDAB7 /* ContentView.swift in Sources */,
+				F90EDB4025C6B96C005EDAB7 /* MainView.swift in Sources */,
 				F90EDB9525C6BB55005EDAB7 /* VditorView.swift in Sources */,
 				F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */,
+				F970758C264BDAAA00543CFE /* ShortcutListView.swift in Sources */,
+				F96EAB9C26399F0500DCA62A /* EditorView.swift in Sources */,
 				F90EDB9625C6BB55005EDAB7 /* VditorViewRPC.swift in Sources */,
 				F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */,
+				F970758E264BDB2100543CFE /* DrawerView.swift in Sources */,
+				F96EAB9326399BBE00DCA62A /* TrackpadKeyboard.swift in Sources */,
 				F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */,
 				F90EDB9825C6BB55005EDAB7 /* VditorController.swift in Sources */,
 				F90EDB9725C6BB55005EDAB7 /* Data.swift in Sources */,
 				F993FA47261472B600917D57 /* FileContext.swift in Sources */,
 				F993FA4226130F2500917D57 /* toolbars.swift in Sources */,
+				F9707584264BCC9300543CFE /* FilePicker.swift in Sources */,
+				F9707591264BDC3E00543CFE /* Editor.swift in Sources */,
+				F9707587264BD8F900543CFE /* PrimaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

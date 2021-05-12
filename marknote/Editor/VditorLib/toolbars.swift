@@ -247,7 +247,7 @@ extension VditorController {
 }
 
 
-extension ContentView {
+extension MainView {
     var TopToolBarLeading: some View {
             HStack {
                 Button(action: {

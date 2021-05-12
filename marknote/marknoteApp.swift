@@ -11,32 +11,10 @@ import SwiftUI
 struct marknoteApp: App {
     let persistenceController = PersistenceController.shared
 
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//        }
-//    }
     var body: some Scene {
         WindowGroup {
-            ContentView(DirOpened: DirOpened,Openedfilelist: Openedfilelist,root: nil)
+            MainView(DirOpened: DirOpened,Openedfilelist: Openedfilelist)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }.commands {
-            Command()
-        }
-    }
-}
-
-struct Command: Commands {
-    var body: some Commands {
-        CommandMenu("编辑") {
-            Button(action: {
-                print("global shortcut")
-                savefile()
-            }, label: {
-                Text("保存")
-            })
-            .keyboardShortcut("s", modifiers: [.command])
         }
     }
 }

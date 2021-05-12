@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // MARK: - ContentView扩展：编辑器视图管理
-extension ContentView {
+extension MainView {
     
     // MARK: - 文件项的右键/长按操作菜单
     struct filecontext: View {
@@ -119,19 +119,6 @@ extension ContentView {
         }
     }
     
-    
-    
-    // deprecated
-    func buildeditor() -> AnyView {
-        return AnyView( EditorView(document: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited, fileURL: self.Openedfilelist.path) )
-    }
-    
-    // MARK: - 编辑器视图
-    var body1: some View {
-        VStack {
-            EditorView(document: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited, fileURL: self.Openedfilelist.path)
-        }
-    }
     struct empty: View {
         var item: fileitems
         @ObservedObject var DirOpened: TargetDir
