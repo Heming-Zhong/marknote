@@ -1,4 +1,5 @@
 /// <reference types="./types" />
+import "./assets/scss/index.scss";
 import VditorMethod from "./method";
 declare class Vditor extends VditorMethod {
     readonly version: string;
@@ -13,7 +14,7 @@ declare class Vditor extends VditorMethod {
     /** 获取 Markdown 内容 */
     getValue(): string;
     /** 获取编辑器当前编辑模式 */
-    getCurrentMode(): "wysiwyg" | "sv" | "ir";
+    getCurrentMode(): "sv" | "wysiwyg" | "ir";
     /** 聚焦到编辑器 */
     focus(): void;
     /** 让编辑器失焦 */
@@ -41,6 +42,8 @@ declare class Vditor extends VditorMethod {
     enableCache(): void;
     /** HTML 转 md */
     html2md(value: string): string;
+    /** markdown 转 JSON 输出 */
+    exportJSON(value: string): string;
     /** 获取 HTML */
     getHTML(): string;
     /** 消息提示。time 为 0 将一直显示 */
@@ -67,5 +70,6 @@ declare class Vditor extends VditorMethod {
     unHlCommentIds(ids: string[]): void;
     /** 删除评论 */
     removeCommentIds(removeIds: string[]): void;
+    private init;
 }
 export default Vditor;

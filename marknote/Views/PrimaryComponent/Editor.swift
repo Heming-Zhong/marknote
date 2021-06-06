@@ -17,11 +17,10 @@ extension MainView {
     // MARK: - 编辑器视图
     var Editor: some View {
         VStack {
-            EditorView(document: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited, fileURL: self.Openedfilelist.path)
+            VditorView(code: self.$Openedfilelist.content,edited: self.$Openedfilelist.edited)
+                .environmentObject(controller)
         }
-        .frame(width: .infinity, height: .infinity, alignment: .trailing)
-        .disabled(offset != CGFloat(-320) ? true : false)
-        .opacity((-Double(offset) + 320) / 640)
+        .disabled(horizontalSizeClass == .compact && (offset != CGFloat(-320) ? true : false))
         .toolbar() {
             ToolbarItem(placement: .navigationBarLeading) {
                 TopToolBarLeading
@@ -33,7 +32,7 @@ extension MainView {
                 Button("save") {
                     savefile()
                 }
-                .padding()
+//                .padding()
                 .frame(width: nil, height: nil, alignment: .center)
                 .hoverEffect()
             })

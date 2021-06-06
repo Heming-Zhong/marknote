@@ -24,6 +24,8 @@ class Tabitem: ObservableObject {
     @Published var edited: Bool = false // 文件内容相比打开时是否发生了变化
     @Published var name: String = ""    // 用于显示的文件名
     
+//    @EnvironmentObject var controller: VditorController
+    
     func settabs(url: URL?) {
         // 切换时已经存在coordinator，说明有打开文件，需要先保存
         if coordinator != nil {
@@ -101,17 +103,22 @@ class Tabitem: ObservableObject {
 var Openedfilelist = Tabitem()
 
 // 用来表示目录项
-struct fileitems: Identifiable{
-    var id = UUID()
+public struct fileitems: Identifiable{
+    public var id = UUID()
     var name: String = ""
     var path: URL? = nil
     var children: [fileitems]? = nil
     var icon: String = ""
     var renaming: Bool = false
+    var expanded: Bool = false
 }
 
 extension fileitems: Comparable {
-    static func < (lhs: fileitems, rhs: fileitems) -> Bool {
+    public static func == (lhs: fileitems, rhs: fileitems) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public static func < (lhs: fileitems, rhs: fileitems) -> Bool {
         return lhs.name < rhs.name
     }
 }

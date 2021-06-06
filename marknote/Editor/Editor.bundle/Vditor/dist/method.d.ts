@@ -1,9 +1,12 @@
 /// <reference types="./types" />
+import * as adapterRender from "./ts/markdown/adapterRender";
 declare class Vditor {
     /** 点击图片放大 */
-    static previewImage: (oldImgElement: HTMLImageElement, lang?: "en_US" | "ja_JP" | "ko_KR" | "zh_CN", theme?: string) => void;
+    static adapterRender: typeof adapterRender;
+    /** 点击图片放大 */
+    static previewImage: (oldImgElement: HTMLImageElement, lang?: "en_US" | "ja_JP" | "ko_KR" | "ru_RU" | "zh_CN" | "zh_TW", theme?: string) => void;
     /** 为 element 中的代码块添加复制按钮 */
-    static codeRender: (element: HTMLElement, lang?: "en_US" | "ja_JP" | "ko_KR" | "zh_CN") => void;
+    static codeRender: (element: HTMLElement) => void;
     /** 对 graphviz 进行渲染 */
     static graphvizRender: (element: HTMLElement, cdn?: string) => void;
     /** 为 element 中的代码块进行高亮渲染 */
@@ -30,7 +33,7 @@ declare class Vditor {
     /** 为[特定链接](https://github.com/Vanessa219/vditor/issues/7)分别渲染为视频、音频、嵌入的 iframe */
     static mediaRender: (element: HTMLElement) => void;
     /** 对选中的文字进行阅读 */
-    static speechRender: (element: HTMLElement, lang?: "en_US" | "ja_JP" | "ko_KR" | "zh_CN") => void;
+    static speechRender: (element: HTMLElement, lang?: "en_US" | "ja_JP" | "ko_KR" | "ru_RU" | "zh_CN" | "zh_TW") => void;
     /** 对图片进行懒加载 */
     static lazyLoadImageRender: (element?: HTMLElement | Document) => boolean;
     /** Markdown 文本转换为 HTML，该方法需使用[异步编程](https://ld246.com/article/1546828434083?r=Vaness) */

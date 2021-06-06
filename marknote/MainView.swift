@@ -39,13 +39,17 @@ struct MainView: View {
     @State var pickerpop = false
     @State var settingpop = false
     
-    // Observed File Values
+    // Observed Values
     @ObservedObject var DirOpened: TargetDir
     @ObservedObject var Openedfilelist: Tabitem
+    @EnvironmentObject var controller: VditorController
     
     // Core Data
     @Environment(\.managedObjectContext) var viewContext
     @FetchRequest(entity: BookMarks.entity(), sortDescriptors: []) var Marks: FetchedResults<BookMarks>
+    
+    // Regular or Compact state
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     // Drawer Offset
     @State var offset = CGFloat(-320)
@@ -80,19 +84,37 @@ struct MainView: View {
             }
         return
             GeometryReader { geometry in
-                ZStack(alignment: .leading) {
-                    Primary
-                    if offset > CGFloat(-320) {
-                        ShadowCover
-                            .frame(width: geometry.size.width + offset, height: .infinity, alignment: .trailing)
+                
+                /// diffirent layout in regular or compact mode
+                /// in regular: just use NavigationView
+                /// in compact: use self designed drawer view
+                /// source: https://developer.apple.com/forums/thread/650180
+                if horizontalSizeClass == .compact {
+                    ZStack(alignment: .leading) {
+                        Primary
+                            .ignoresSafeArea()
+                        if offset > CGFloat(-320) && horizontalSizeClass == .compact {
+                            ShadowCover
+                                .frame(width: geometry.size.width + offset, height: .infinity, alignment: .trailing)
+                        }
+                        Drawer
+                            .ignoresSafeArea()
                     }
-                    Drawer
+                    .trackpad_support(offset: $offset, show_picker: $pickerpop, show_setting: $settingpop)
+//                    .keyshortcut_support(show_picker: $pickerpop, show_setting: $settingpop)
+                    .gesture(drag)
+                    .ignoresSafeArea()
+                    
+                } else {
+                    NavigationView {
+                        sidebar
+                        Editor
+                    }
+                    .keyshortcut_support(show_picker: $pickerpop, show_setting: $settingpop)
+                    .ignoresSafeArea(.all)
                 }
-                .keytrackpad_support(offset: $offset, show_picker: $pickerpop, show_setting: $settingpop)
-                .gesture(drag)
-                .accentColor(.purple)
-                .ignoresSafeArea(.all)
             }
+            .accentColor(.purple)
     }
     
     var navitool: some View {

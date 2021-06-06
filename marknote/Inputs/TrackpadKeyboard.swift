@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI 
 
-/// 给SwiftUI视图添加触控板平移滚动手势，用于控制侧边抽屉栏的滑出和收起
+/// 给Compact模式下的SwiftUI视图添加触控板平移滚动手势，用于控制侧边抽屉栏的滑出和收起
+/// 此外，所有的快捷键也被加入到该Controller中，因为如果使用多个类似Controller作为Modifier，会导致对Safearea的ignorance失效
 /// 参考自：https://github.com/joehinkle11/Lazy-Pop-SwiftUI
 class SwipeController<Content>: UIHostingController<Content>, UIGestureRecognizerDelegate where Content : View {
     private var panGesture: UIPanGestureRecognizer!
@@ -17,14 +18,15 @@ class SwipeController<Content>: UIHostingController<Content>, UIGestureRecognize
     private var shortcutAdded = false
     private var begin_offset: CGFloat = CGFloat(-320)
     private var begin_position: CGFloat = 0
-    @Binding var offset: CGFloat
     @Binding var picker_pop: Bool
     @Binding var setting_pop: Bool
+    @Binding var offset: CGFloat
     init(rootView: Content, offset: (Binding<CGFloat>), show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) {
         self._offset = offset
         self._picker_pop = show_picker ?? Binding<Bool>(get: {return false}, set: {_ in })
         self._setting_pop = show_setting ?? Binding<Bool>(get: {return false}, set: {_ in })
         super.init(rootView: rootView)
+        super.additionalSafeAreaInsets = .zero
         begin_offset = self.offset
     }
     
@@ -53,10 +55,10 @@ class SwipeController<Content>: UIHostingController<Content>, UIGestureRecognize
             let picker = UIKeyCommand(input: "o", modifierFlags: .command, action: #selector(pickershortcut(_:)))
             let setting = UIKeyCommand(input: "g", modifierFlags: .command, action: #selector(settingshortcut(_:)))
             let save = UIKeyCommand(input: "s", modifierFlags: .command, action: #selector(savefile(_:)))
-            self.addKeyCommand(sidemenu)
             self.addKeyCommand(picker)
             self.addKeyCommand(setting)
             self.addKeyCommand(save)
+            self.addKeyCommand(sidemenu)
         }
     }
 
@@ -83,18 +85,6 @@ class SwipeController<Content>: UIHostingController<Content>, UIGestureRecognize
         else {
             offset = CGFloat(-320)
         }
-    }
-    
-    @objc func pickershortcut(_ command: UIKeyCommand) {
-        picker_pop.toggle()
-    }
-    
-    @objc func settingshortcut(_ command: UIKeyCommand) {
-        setting_pop.toggle()
-    }
-    
-    @objc func savefile(_ command: UIKeyCommand) {
-        marknote.savefile()
     }
     
     @objc func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
@@ -164,6 +154,18 @@ class SwipeController<Content>: UIHostingController<Content>, UIGestureRecognize
             break
         }
     }
+    
+    @objc func pickershortcut(_ command: UIKeyCommand) {
+        picker_pop.toggle()
+    }
+    
+    @objc func settingshortcut(_ command: UIKeyCommand) {
+        setting_pop.toggle()
+    }
+    
+    @objc func savefile(_ command: UIKeyCommand) {
+        marknote.savefile()
+    }
 }
 
 struct swipeView<Content: View>: UIViewControllerRepresentable {
@@ -174,26 +176,100 @@ struct swipeView<Content: View>: UIViewControllerRepresentable {
     
     init(_ rootView: Content, offset: (Binding<CGFloat>)? = nil, show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) {
         self.rootView = rootView
-        self._offset = offset ?? Binding<CGFloat>(get: { return CGFloat(-320)}, set: {_ in })
         self._picker_pop = show_picker ?? Binding<Bool>(get: {return false}, set: {_ in })
         self._setting_pop = show_setting ?? Binding<Bool>(get: {return false}, set: {_ in })
+        self._offset = offset ?? Binding<CGFloat>(get: { return CGFloat(-320)}, set: {_ in })
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
         let vc = SwipeController(rootView: rootView, offset: $offset, show_picker: $picker_pop, show_setting: $setting_pop)
+        vc.additionalSafeAreaInsets = .zero
         return vc
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
         if let host = uiViewController as? UIHostingController<Content> {
             host.rootView = rootView
+            host.additionalSafeAreaInsets = .zero
         }
     }
 }
 
+class KeyShortcutController<Content>: UIHostingController<Content> where Content : View {
+    private var shortcutAdded = false
+    @Binding var picker_pop: Bool
+    @Binding var setting_pop: Bool
+    init(rootView: Content, show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) {
+        self._picker_pop = show_picker ?? Binding<Bool>(get: {return false}, set: {_ in })
+        self._setting_pop = show_setting ?? Binding<Bool>(get: {return false}, set: {_ in })
+        super.init(rootView: rootView)
+        super.additionalSafeAreaInsets = .zero
+    }
+    
+    @objc required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if shortcutAdded == true {
+            // do nothing
+        }
+        else {
+            let picker = UIKeyCommand(input: "o", modifierFlags: .command, action: #selector(pickershortcut(_:)))
+            let setting = UIKeyCommand(input: "g", modifierFlags: .command, action: #selector(settingshortcut(_:)))
+            let save = UIKeyCommand(input: "s", modifierFlags: .command, action: #selector(savefile(_:)))
+            self.addKeyCommand(picker)
+            self.addKeyCommand(setting)
+            self.addKeyCommand(save)
+        }
+    }
+    
+    @objc func pickershortcut(_ command: UIKeyCommand) {
+        picker_pop.toggle()
+    }
+    
+    @objc func settingshortcut(_ command: UIKeyCommand) {
+        setting_pop.toggle()
+    }
+    
+    @objc func savefile(_ command: UIKeyCommand) {
+        marknote.savefile()
+    }
+}
+
+struct KeyShortcutView<Content: View>: UIViewControllerRepresentable {
+    let rootView: Content
+    @Binding var picker_pop: Bool
+    @Binding var setting_pop: Bool
+    
+    init(_ rootView: Content, show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) {
+        self.rootView = rootView
+        self._picker_pop = show_picker ?? Binding<Bool>(get: {return false}, set: {_ in })
+        self._setting_pop = show_setting ?? Binding<Bool>(get: {return false}, set: {_ in })
+    }
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        let vc = KeyShortcutController(rootView: rootView, show_picker: $picker_pop, show_setting: $setting_pop)
+        vc.additionalSafeAreaInsets = .zero
+        return vc
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        if let host = uiViewController as? UIHostingController<Content> {
+            host.rootView = rootView
+            host.additionalSafeAreaInsets = .zero
+        }
+    }
+}
+
+
 extension View {
-    public func keytrackpad_support(offset: (Binding<CGFloat>)? = nil, show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) -> some View {
+    public func trackpad_support(offset: (Binding<CGFloat>)? = nil, show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) -> some View {
         return swipeView(self, offset: offset, show_picker: show_picker, show_setting: show_setting)
+    }
+    
+    public func keyshortcut_support(show_picker: (Binding<Bool>)? = nil, show_setting: (Binding<Bool>)? = nil) -> some View {
+        return KeyShortcutView(self, show_picker: show_picker, show_setting: show_setting)
     }
 }
 

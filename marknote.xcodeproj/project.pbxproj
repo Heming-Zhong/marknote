@@ -22,6 +22,7 @@
 		F90EDB9925C6BB55005EDAB7 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9125C6BB50005EDAB7 /* Mode.swift */; };
 		F90EDB9A25C6BB55005EDAB7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9225C6BB50005EDAB7 /* Theme.swift */; };
 		F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB9325C6BB50005EDAB7 /* Bundle.swift */; };
+		F9384B7E265CC59700D67B92 /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9384B7D265CC59700D67B92 /* HierarchyList.swift */; };
 		F96EAB9326399BBE00DCA62A /* TrackpadKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EAB9226399BBE00DCA62A /* TrackpadKeyboard.swift */; };
 		F96EAB9C26399F0500DCA62A /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EAB9B26399F0500DCA62A /* EditorView.swift */; };
 		F9707584264BCC9300543CFE /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9707583264BCC9300543CFE /* FilePicker.swift */; };
@@ -78,6 +79,7 @@
 		F90EDB9125C6BB50005EDAB7 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		F90EDB9225C6BB50005EDAB7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F90EDB9325C6BB50005EDAB7 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		F9384B7D265CC59700D67B92 /* HierarchyList.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HierarchyList.swift; sourceTree = "<group>"; usesTabs = 0; };
 		F96EAB9226399BBE00DCA62A /* TrackpadKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackpadKeyboard.swift; sourceTree = "<group>"; };
 		F96EAB9B26399F0500DCA62A /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		F9707583264BCC9300543CFE /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				F978ED2C261877F2008C325D /* sidebarView.swift */,
 				F9707589264BD9F000543CFE /* FileTreeView.swift */,
 				F970758B264BDAAA00543CFE /* ShortcutListView.swift */,
+				F9384B7D265CC59700D67B92 /* HierarchyList.swift */,
 			);
 			path = DrawerComponent;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				F9707593264BDC9D00543CFE /* ShadowCover.swift in Sources */,
 				F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */,
 				F978ED2D261877F2008C325D /* sidebarView.swift in Sources */,
+				F9384B7E265CC59700D67B92 /* HierarchyList.swift in Sources */,
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
 				F978ED282618769C008C325D /* marknote.xcdatamodeld in Sources */,
 				F970758A264BD9F000543CFE /* FileTreeView.swift in Sources */,

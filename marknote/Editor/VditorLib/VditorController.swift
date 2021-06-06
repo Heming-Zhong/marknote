@@ -24,17 +24,17 @@ private struct JavascriptFunction {
 
 // MARK: - VditorController Coordinator
 
-public class VditorController: NSObject {
+public class VditorController: NSObject, ObservableObject {
     
     // MARK: Properties
     
-    var parent: VditorView
+    var parent: VditorView?
     weak var webView: WKWebView?
     
     fileprivate var pageLoaded = false
     fileprivate var pendingFunctions = [JavascriptFunction]()
     
-    init(_ parent: VditorView) {
+    init(_ parent: VditorView?) {
         self.parent = parent
     }
     
@@ -76,17 +76,17 @@ extension VditorController: WKScriptMessageHandler {
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
       print("didFinish")
-      parent.onLoadSuccess?()
+      parent?.onLoadSuccess?()
     }
     
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
       print("didFail \(error.localizedDescription)")
-      parent.onLoadFail?(error)
+      parent?.onLoadFail?(error)
     }
     
     public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
       print("didFailProvisionalNavigation")
-      parent.onLoadFail?(error)
+      parent?.onLoadFail?(error)
     }
 }
 
@@ -105,8 +105,8 @@ extension VditorController: WKNavigationDelegate {
         // Content change
         if message.name == VditorViewRPC.textContentDidChange {
             print("updating")
-            if parent.edited == false {
-                parent.edited = true
+            if parent?.edited == false {
+                parent?.edited = true
             }
             return
         }

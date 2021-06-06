@@ -78,7 +78,7 @@ extension MainView {
         
         
         Openedfilelist.reset()
-        let Dir = fileitems(name: url.lastPathComponent, path: url)
+        let Dir = fileitems(name: url.lastPathComponent, path: url, expanded: true)
         let allitems = traversesubfiles(root: Dir)
         
         DirOpened.files = allitems

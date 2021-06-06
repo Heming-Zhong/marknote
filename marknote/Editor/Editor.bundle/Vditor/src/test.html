@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <!-- ⚠️生产环境请指定版本号，如 https://cdn.jsdelivr.net/npm/vditor@x.x.x/dist... -->
     <link rel="stylesheet" href="./purple.css" />
     <link rel="stylesheet" href="../dist/index.css" />
@@ -14,11 +14,13 @@
     body {
         max-width: 100%;
         overflow: hidden;
+        -webkit-text-size-adjust: none;
     }
     .vditor-reset {
-        font-size: 18pt;
+        font-size: 16pt;
         -webkit-font-smoothing: antialiased;
-        font-family: "FiraCode-Retina";
+        font-family: "SFMono-Medium", "FiraCode-Retina";
+        padding: 10px 37px !important;
     }
     .vditor {
         --textarea-background-color: #fff;
@@ -47,12 +49,16 @@
         content: "H2";
         margin-left: -48px;
     }
+    .hljs::-webkit-scrollbar {
+        display: none;
+    }
 </style>
 
 <body>
     <div id="wrapper">
         <div id="vditor" class="vditor  vditor--fullscreen"></div>
     </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.5/dist/index.min.js"></script> -->
     <script src="../dist/index.min.js">
     </script>
     <script>
@@ -70,6 +76,7 @@
             toolbarConfig: {
                 pin: true
             },
+            mode: 'wysiwyg',
             counter: {
                 enable: true
             },
@@ -80,6 +87,7 @@
                 position: 'right'
             },
             preview: {
+                // mode: 'editor',
                 hljs: {
                     style: 'vs'
                 },
@@ -89,11 +97,15 @@
                 markdown: {
                     toc: true,
                     mark: true
+                },
+                math: {
+                    engine: 'MathJax'
                 }
             },
             theme: 'classic',
             value: "",
             input: function(text, e) {
+                console.log(this)
                 if (edited == false) {
                     edited = true
                 }
@@ -115,6 +127,7 @@
         
         // debug editor keyboard shortcut
         window.onkeydown=function(ev) {
+            console.log(ev.key)
             window.webkit.messageHandlers.LogHandler.postMessage(ev.key);
         }
         

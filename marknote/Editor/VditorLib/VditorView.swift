@@ -15,6 +15,7 @@ typealias RepresentableView = UIViewRepresentable
 
 public struct VditorView: RepresentableView {
     
+    @EnvironmentObject var controller: VditorController
     @Binding var code: String // 视图中绑定的打开时数据（现在有点没必要了
     
     // TODO：主题自定义
@@ -26,11 +27,11 @@ public struct VditorView: RepresentableView {
     var onLoadFail: ((Error) -> ())?
     var onContentChange: ((String) -> ())?
     
-    public init(code: Binding<String>, edited: Binding<Bool>) {
-        self._code = code
-//        self.theme = theme
-        self._edited = edited
-    }
+//    public init(code: Binding<String>, edited: Binding<Bool>) {
+//        self._code = code
+////        self.theme = theme
+//        self._edited = edited
+//    }
     
     // Life Cycle
     
@@ -69,8 +70,11 @@ public struct VditorView: RepresentableView {
     }
     
     public func makeCoordinator() -> VditorController {
-        coordinator = VditorController(self)
-        return coordinator!
+//        coordinator = VditorController(self)
+        controller.parent = self
+        coordinator = controller
+//        coordinator = controller
+        return controller
     }
     
 }
@@ -100,46 +104,49 @@ extension VditorView {
 // Private API
 extension VditorView {
     private func createWebView(_ context: Context) -> WKWebView {
-        let preferences = WKPreferences()
-        preferences.javaScriptEnabled = true
-        
-        let userController = WKUserContentController()
-        userController.add(context.coordinator, name: VditorViewRPC.isReady)
-        userController.add(context.coordinator, name: VditorViewRPC.textContentDidChange)
-        userController.add(context.coordinator, name: VditorViewRPC.logHandler)
-        
-        
-        let configuration = WKWebViewConfiguration()
-        configuration.preferences = preferences
-        configuration.userContentController = userController
-        
-        
-//        let webView = WKWebView(frame: .zero, configuration: configuration)
-        let webView = VditorWebView(frame: .zero, configuration: configuration)
-        webView.navigationDelegate = context.coordinator
-        webView.scrollView.isScrollEnabled = false
-        
-        // iOS
-        webView.isOpaque = false
-        
-        // 加载bundle资源文件
-        let EditorBundle = try! Bundle.EditorBundle()
-        guard let indexPath = EditorBundle.path(forResource: "Vditor/src/test", ofType: "html") else {
-            fatalError("EditorBundle is missing")
+        if controller.webView == nil {
+            let preferences = WKPreferences()
+            preferences.javaScriptEnabled = true
+            
+            let userController = WKUserContentController()
+            userController.add(context.coordinator, name: VditorViewRPC.isReady)
+            userController.add(context.coordinator, name: VditorViewRPC.textContentDidChange)
+            userController.add(context.coordinator, name: VditorViewRPC.logHandler)
+            
+            
+            let configuration = WKWebViewConfiguration()
+            configuration.preferences = preferences
+            configuration.userContentController = userController
+            
+            
+    //        let webView = WKWebView(frame: .zero, configuration: configuration)
+            let webView = VditorWebView(frame: .zero, configuration: configuration)
+            webView.navigationDelegate = context.coordinator
+            webView.scrollView.isScrollEnabled = false
+            
+            // iOS
+            webView.isOpaque = false
+            
+            // 加载bundle资源文件
+            let EditorBundle = try! Bundle.EditorBundle()
+            guard let indexPath = EditorBundle.path(forResource: "Vditor/src/test", ofType: "html") else {
+                fatalError("EditorBundle is missing")
+            }
+            let path = URL(fileURLWithPath: indexPath)
+            
+            let data = try! Data(contentsOf: URL(fileURLWithPath: indexPath))
+            webView.loadFileURL(path, allowingReadAccessTo: path.deletingLastPathComponent())
+            
+            // 构建WKWebView
+            context.coordinator.setWebView(webView)
+            // 调用setContent函数进行内容初始化
+            context.coordinator.setContent(code)
+    //        webView.addInputAccessoryView(toolbar: context.coordinator.getToolbar(height: 44))
+            webView.accessoryView = context.coordinator.getToolbar(height: 44)
+            return webView
+        } else {
+            return controller.webView!
         }
-        let path = URL(fileURLWithPath: indexPath)
-        
-        let data = try! Data(contentsOf: URL(fileURLWithPath: indexPath))
-        webView.loadFileURL(path, allowingReadAccessTo: path.deletingLastPathComponent())
-        
-        // 构建WKWebView
-        context.coordinator.setWebView(webView)
-        // 调用setContent函数进行内容初始化
-        context.coordinator.setContent(code)
-//        webView.addInputAccessoryView(toolbar: context.coordinator.getToolbar(height: 44))
-        webView.accessoryView = context.coordinator.getToolbar(height: 44)
-        
-        return webView
     }
     
     fileprivate func updateWebView(_ context: VditorView.Context) {

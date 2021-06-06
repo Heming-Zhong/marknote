@@ -9,21 +9,33 @@ import Foundation
 import SwiftUI
 
 extension MainView {
+    
     var OpenedFileTree: some View {
-        OutlineGroup([self.DirOpened.files], children: \.children) {
-            item in
-            if(item.icon == "doc") {
+        HierarchyList(
+            data: [self.DirOpened.files],
+            id: \.id,
+            children: \.children,
+            expanded: \.expanded,
+            rowContent: {
+                item in
                 Button(action: {
-                    print("pressed")
-                    Openedfilelist.settabs(url: item.path)
-                    
-                    withAnimation {
-                        if offset == CGFloat(-320) {
-                            offset = CGFloat(0)
+                    if item.icon == "doc" {
+                        print("pressed")
+                        Openedfilelist.settabs(url: item.path)
+
+                        if horizontalSizeClass == .compact {
+                            withAnimation {
+                                if offset == CGFloat(-320) {
+                                    offset = CGFloat(0)
+                                }
+                                else {
+                                    offset = CGFloat(-320)
+                                }
+                            }
                         }
-                        else {
-                            offset = CGFloat(-320)
-                        }
+                    }
+                    else {
+                        setfileitems(id: item.id, cur: &DirOpened.files, callback: setexpansioncallback)
                     }
                 }, label: {
                     HStack {
@@ -45,16 +57,13 @@ extension MainView {
                         }
                     }
                 }).contextMenu{
-                    filecontext(item: item)
-                }
-                .frame(width: nil, height: nil, alignment: .center)
-            }
-            else {
-                empty(item: item, DirOpened: DirOpened)
-                    .contextMenu {
+                    if item.icon == "doc" {
+                        filecontext(item: item)
+                    }
+                    else {
                         foldercontext(item: item)
                     }
-            }
-        }
+                }
+        })        
     }
 }

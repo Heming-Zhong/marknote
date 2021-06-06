@@ -91,12 +91,7 @@ extension VditorController {
         let BoldButton = UIBarButtonItem(image: UIImage(systemName: "bold"), style: .plain, target: self, action: #selector(onToolbarBoldClick(sender:)))
         let ItalicButton = UIBarButtonItem(image: UIImage(systemName: "italic"), style: .plain, target: self, action: #selector(onToolbarItalicClick(sender:)))
         let StrikeButton = UIBarButtonItem(image: UIImage(systemName: "strikethrough"), style: .plain, target: self, action: #selector(onToolbarStrikeClick(sender:)))
-        let Header1Button = UIBarButtonItem(title: "H1", style: .plain, target: self, action: #selector(onToolbarHeader1Click(sender:)))
-        let Header2Button = UIBarButtonItem(title: "H2", style: .plain, target: self, action: #selector(onToolbarHeader2Click(sender:)))
-        let Header3Button = UIBarButtonItem(title: "H3", style: .plain, target: self, action: #selector(onToolbarHeader3Click(sender:)))
-        let Header4Button = UIBarButtonItem(title: "H4", style: .plain, target: self, action: #selector(onToolbarHeader4Click(sender:)))
-        let Header5Button = UIBarButtonItem(title: "H5", style: .plain, target: self, action: #selector(onToolbarHeader5Click(sender:)))
-        let Header6Button = UIBarButtonItem(title: "H6", style: .plain, target: self, action: #selector(onToolbarHeader6Click(sender:)))
+        let HeaderButton = UIBarButtonItem(title: "H", style: .plain, target: self, action: nil)
         let UnorderedListButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(onToolbarUnorderedListClick(sender:)))
         let OrderedListButton = UIBarButtonItem(image: UIImage(systemName: "list.number"), style: .plain, target: self, action: #selector(onToolbarOrderedListClick(sender:)))
         let CheckListButton = UIBarButtonItem(image: UIImage(systemName: "checkmark.square"), style: .plain, target: self, action: #selector(onToolbarCheckListClick(sender:)))
@@ -112,16 +107,26 @@ extension VditorController {
         
         let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil )
         
+        /// create a pop up menu for UIBarButtonItem
+        /// link: https://betterprogramming.pub/whats-new-in-ios-14s-uimenu-and-contextmenu-433cd2037c37
+        let destruct = UIAction(title: "Destruct", attributes: .destructive) { _ in }
+                
+        let items = UIMenu(title: "Headers", options: .displayInline, children: [
+            UIAction(title: "Header1", handler: { _ in self.setHeader1()}),
+            UIAction(title: "Header2", handler: { _ in self.setHeader2()}),
+            UIAction(title: "Header3", handler: { _ in self.setHeader3()}),
+            UIAction(title: "Header4", handler: { _ in self.setHeader4()}),
+            UIAction(title: "Header5", handler: { _ in self.setHeader5()}),
+            UIAction(title: "Header6", handler: { _ in self.setHeader6()}),
+        ])
+        
+        HeaderButton.menu = UIMenu(title: "", children: [items])
+        
         toolBar.setItems([
             BoldButton,
             ItalicButton,
             StrikeButton,
-            Header1Button,
-            Header2Button,
-            Header3Button,
-            Header4Button,
-            Header5Button,
-            Header6Button,
+            HeaderButton,
             UnorderedListButton,
             OrderedListButton,
             CheckListButton,
@@ -170,6 +175,17 @@ extension VditorController {
     }
     
     @objc func onToolbarHeader1Click(sender: UIBarButtonItem) {
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("YourViewController") as! UIViewController
+//        let vc = UIViewController()
+//        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+//        popover.barButtonItem = sender
+//        popover.delegate = sender as! UIPopoverPresentationControllerDelegate
+//
+//        presentViewController(vc, animated: true, completion:nil)
+        
+        
+//        menu.becomeFirstResponder()
         self.setHeader1()
     }
     
@@ -250,18 +266,20 @@ extension VditorController {
 extension MainView {
     var TopToolBarLeading: some View {
             HStack {
-                Button(action: {
-                    withAnimation {
-                        if offset == CGFloat(-320) {
-                            offset = CGFloat(0)
+                if horizontalSizeClass == .compact {
+                    Button(action: {
+                        withAnimation {
+                            if offset == CGFloat(-320) {
+                                offset = CGFloat(0)
+                            }
+                            else {
+                                offset = CGFloat(-320)
+                            }
                         }
-                        else {
-                            offset = CGFloat(-320)
-                        }
-                    }
-                }, label: {
-                    Image(systemName: "sidebar.left")
-                })
+                    }, label: {
+                        Image(systemName: "sidebar.left")
+                    })
+                }
             }
     }
     
