@@ -38,6 +38,7 @@
 		F993FA47261472B600917D57 /* FileContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993FA46261472B600917D57 /* FileContext.swift */; };
 		F9D219ED25F2831400AC924C /* Editor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9D219EC25F2831400AC924C /* Editor.bundle */; };
 		F9D21EF625F900D600AC924C /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D21EF525F900D600AC924C /* settings.swift */; };
+		F9EC9DFB266DF619005F617C /* Usersetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EC9DFA266DF619005F617C /* Usersetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F993FA46261472B600917D57 /* FileContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContext.swift; sourceTree = "<group>"; };
 		F9D219EC25F2831400AC924C /* Editor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Editor.bundle; sourceTree = "<group>"; };
 		F9D21EF525F900D600AC924C /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		F9EC9DFA266DF619005F617C /* Usersetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usersetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				F90EDB4B25C6B96D005EDAB7 /* Info.plist */,
 				F90EDB4325C6B96D005EDAB7 /* Preview Content */,
 				F9D21EF525F900D600AC924C /* settings.swift */,
+				F9EC9DFA266DF619005F617C /* Usersetting.swift */,
 			);
 			path = marknote;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			files = (
 				F9707593264BDC9D00543CFE /* ShadowCover.swift in Sources */,
 				F90EDB8825C6BAF5005EDAB7 /* File.swift in Sources */,
+				F9EC9DFB266DF619005F617C /* Usersetting.swift in Sources */,
 				F978ED2D261877F2008C325D /* sidebarView.swift in Sources */,
 				F9384B7E265CC59700D67B92 /* HierarchyList.swift in Sources */,
 				F90EDB9B25C6BB55005EDAB7 /* Bundle.swift in Sources */,
