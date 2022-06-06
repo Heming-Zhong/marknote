@@ -40,6 +40,6 @@ extension MainView {
                 TopToolBarLeading
             }
         }
-        .edgesIgnoringSafeArea(.all)
+//        .edgesIgnoringSafeArea(.all)
     }
 }

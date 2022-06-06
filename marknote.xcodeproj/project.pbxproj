@@ -10,7 +10,6 @@
 		F90EDB3E25C6B96C005EDAB7 /* marknoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */; };
 		F90EDB4025C6B96C005EDAB7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB3F25C6B96C005EDAB7 /* MainView.swift */; };
 		F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */; };
-		F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */; };
 		F90EDB4725C6B96D005EDAB7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB4625C6B96D005EDAB7 /* Persistence.swift */; };
 		F90EDB5525C6B96D005EDAB7 /* marknoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5425C6B96D005EDAB7 /* marknoteTests.swift */; };
 		F90EDB6025C6B96D005EDAB7 /* marknoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EDB5F25C6B96D005EDAB7 /* marknoteUITests.swift */; };
@@ -63,7 +62,6 @@
 		F90EDB3D25C6B96C005EDAB7 /* marknoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marknoteApp.swift; sourceTree = "<group>"; };
 		F90EDB3F25C6B96C005EDAB7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F90EDB4125C6B96D005EDAB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F90EDB4625C6B96D005EDAB7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F90EDB4B25C6B96D005EDAB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F90EDB5025C6B96D005EDAB7 /* marknoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marknoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +164,6 @@
 		F90EDB4325C6B96D005EDAB7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F90EDB4425C6B96D005EDAB7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -376,7 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9D219ED25F2831400AC924C /* Editor.bundle in Resources */,
-				F90EDB4525C6B96D005EDAB7 /* Preview Assets.xcassets in Resources */,
 				F90EDB4225C6B96D005EDAB7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
